@@ -1,0 +1,9 @@
+.author__content {
+  display: flex;
+  border-top: 1px solid rgb(0, 0, 0);
+  max-width: 1140px;
+  width: 100%;
+  align-self: center;
+  justify-content: space-between;
+  padding-top: 66px;
+}

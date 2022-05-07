@@ -1,0 +1,14 @@
+@import url(../../blocks/about/about.css);
+@import url(../../blocks/about/__title/about__title.css);
+@import url(../../blocks/about/__column/about__column.css);
+@import url(../../blocks/about/__columns/about__columns.css);
+@import url(../../blocks/about/__column-title/about__column-title.css);
+@import url(../../blocks/about/__column-text/about__column-text.css);
+@import url(../../blocks/about/__roadmap/about__roadmap.css);
+@import url(../../blocks/about/__roadmap-block/about__roadmap-block.css);
+@import url(../../blocks/about/__roadmap-block/_backend/about__roadmap-block_backend.css);
+@import url(../../blocks/about/__roadmap-block/_frontend/about__roadmap-block_frontend.css);
+@import url(../../blocks/about/__time/about__time.css);
+@import url(../../blocks/about/__time/_frontend/about__time_frontend.css);
+@import url(../../blocks/about/__time/_backend/about__time_backend.css);
+@import url(../../blocks/about/__roadmap-title/about__roadmap-title.css);

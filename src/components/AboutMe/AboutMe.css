@@ -1,0 +1,10 @@
+@import url(../../blocks/author/author.css);
+@import url(../../blocks/author/__title/author__title.css);
+@import url(../../blocks/author/__content/author__content.css);
+@import url(../../blocks/author/__column/author__column.css);
+@import url(../../blocks/author/__description/author__description.css);
+@import url(../../blocks/author/__name/author__name.css);
+@import url(../../blocks/author/__photo/author__photo.css);
+@import url(../../blocks/author/__profession/author__profession.css);
+@import url(../../blocks/author/__links/author__links.css);
+@import url(../../blocks/author/__link/author__link.css);

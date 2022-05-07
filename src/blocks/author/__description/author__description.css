@@ -1,0 +1,9 @@
+
+.author__description {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  display: flex;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}

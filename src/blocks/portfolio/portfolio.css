@@ -1,0 +1,10 @@
+.portfolio {
+  max-width: 1140px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 100px;
+  margin-bottom: 125px;
+  align-self: center;
+}

@@ -1,0 +1,28 @@
+.techs__button {
+  width: 90px;
+  height: 60px;
+  background: #E8E8E8;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  border-radius: 10px;
+  border: none;
+  transition: opacity 0.2s ease-out;
+  cursor: pointer;
+  align-self: auto;
+  margin-bottom: 100px;
+}
+
+.techs__button:hover{
+  background: rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 650px)  {
+  .techs__button {
+    width: 84px;
+    height: 57px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

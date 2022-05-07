@@ -1,0 +1,7 @@
+.about__roadmap {
+  display: flex;
+  max-width: 1140px;
+  margin: 110px auto;
+  font-size: 14px;
+  line-height: 17px;
+}

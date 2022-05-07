@@ -1,0 +1,6 @@
+.about__column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 550px;
+}

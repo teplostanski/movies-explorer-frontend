@@ -1,0 +1,5 @@
+.author__photo {
+  max-width: 270px;
+  height: auto;
+  object-fit: cover;
+}

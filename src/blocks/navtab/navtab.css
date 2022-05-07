@@ -1,0 +1,7 @@
+.navtab {
+  align-self: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 151px auto 30px auto;
+  gap: 10px;
+}

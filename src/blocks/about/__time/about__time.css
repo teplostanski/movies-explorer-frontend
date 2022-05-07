@@ -1,0 +1,6 @@
+.about__time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+}

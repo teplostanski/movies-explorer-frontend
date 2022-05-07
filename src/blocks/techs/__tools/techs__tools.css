@@ -1,0 +1,7 @@
+.techs__tools {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(auto, 1fr);
+  align-self: center;
+}

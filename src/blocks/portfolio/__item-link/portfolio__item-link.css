@@ -1,0 +1,8 @@
+.portfolio__item-link {
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 60px;
+  letter-spacing: -0.04em;
+  color: #000000;
+  text-decoration: none;
+}

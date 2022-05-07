@@ -1,0 +1,26 @@
+.navtab__button {
+  width: 96px;
+  height: 36px;
+  background: #E8E8E8;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #FFFFFF;
+  border-radius: 10px;
+  border: none;
+  transition: opacity 0.2s ease-out;
+  cursor: pointer;
+  align-self: auto;
+}
+
+.navtab__button:hover{
+  background: rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 650px)  {
+  .header__auth-button {
+    width: 82px;
+    height: 26px;
+    font-size: 10px;
+  }
+}
