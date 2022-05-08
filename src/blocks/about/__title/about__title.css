@@ -6,3 +6,9 @@
   margin-top: 110px;
   margin-bottom: 23px;
 }
+
+@media screen and (max-width: 1024px)  {
+  .about__title {
+    margin-top: 91px;
+  }
+}

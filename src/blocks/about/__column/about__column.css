@@ -4,3 +4,9 @@
   justify-content: flex-start;
   max-width: 550px;
 }
+
+@media screen and (max-width: 1024px)  {
+  .about__column {
+    max-width: 319px;
+  }
+}

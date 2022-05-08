@@ -10,7 +10,7 @@
   border: none;
   transition: opacity 0.2s ease-out;
   cursor: pointer;
-  margin: 21px 70px 21px 30px;
+  margin: 21px 0px;
   align-self: auto;
 }
 
@@ -21,7 +21,7 @@
 @media screen and (max-width: 650px)  {
   .header__auth-button {
     width: 54px;
-    height: 25px;
+    height: 26px;
     font-size: 10px;
     line-height: 16px;
   }

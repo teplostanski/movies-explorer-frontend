@@ -2,4 +2,11 @@
   max-width: 270px;
   height: auto;
   object-fit: cover;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 1024px)  {
+  .author__photo {
+    max-width: 255px;
+  }
 }

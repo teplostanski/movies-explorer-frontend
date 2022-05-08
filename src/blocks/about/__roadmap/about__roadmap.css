@@ -1,7 +1,14 @@
 .about__roadmap {
   display: flex;
   max-width: 1140px;
-  margin: 110px auto;
+  margin: 97px auto 110px;
   font-size: 14px;
   line-height: 17px;
+}
+
+@media screen and (max-width: 1024px)  {
+  .about__roadmap{
+    margin-top: 80px;
+    margin-bottom: 90px;
+  }
 }

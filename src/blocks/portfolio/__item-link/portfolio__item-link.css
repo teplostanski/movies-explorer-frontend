@@ -6,3 +6,10 @@
   color: #000000;
   text-decoration: none;
 }
+
+@media screen and (max-width: 650px) {
+  .portfolio__item-link {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}

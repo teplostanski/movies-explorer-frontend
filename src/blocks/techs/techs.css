@@ -4,5 +4,19 @@
   background-color: #F5F5F5;
   display: flex;
   flex-direction: column;
+  align-self: center;
   justify-content: flex-start;
+}
+
+@media screen and (max-width: 1024px)  {
+  .techs {
+    height: 567px;
+  }
+}
+
+@media screen and (max-width: 650px)  {
+  .techs {
+    max-width: 284px;
+    background-color: #FFFFFF;
+  }
 }

@@ -3,7 +3,6 @@
   font-size: 12px;
   line-height: 16px;
   color: #000000;
-
   text-decoration: none;
   list-style-type: none;
   transition: opacity 0.2s ease-out;
@@ -11,4 +10,10 @@
 
 .header__link:hover {
   opacity: 0.6;
+}
+
+@media screen and (max-width: 650px)  {
+  .header__link {
+    font-size: 10px;
+  }
 }

@@ -6,3 +6,16 @@
   margin-block-start: 0;
   margin-block-end: 0;
 }
+
+@media screen and (max-width: 1024px) {
+  .portfolio__item-name {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .portfolio__item-name {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}

@@ -13,7 +13,7 @@ function AboutProject() {
             функциональности и финальные доработки.</p>
         </article>
         <article className="about__column">
-          <h4 className="about__column-title">На выполнение диплома ушло 4 недели</h4>
+          <h4 className="about__column-title">На выполнение диплома ушло 5 недель</h4>
           <p className="about__column-text"> У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было соблюдать,
             чтобы успешно защититься.</p>
         </article>
@@ -24,7 +24,7 @@ function AboutProject() {
           <span className="about__roadmap-title"> Back-end </span>
         </div>
         <div className="about__roadmap-block about__roadmap-block_frontend">
-          <div className="about__time about__time_fronted">5 недель</div>
+          <div className="about__time about__time_fronted">4 недели</div>
           <span className="about__roadmap-title"> Front-end </span>
         </div>
       </div>

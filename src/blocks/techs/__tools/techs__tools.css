@@ -4,4 +4,13 @@
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(auto, 1fr);
   align-self: center;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+@media screen and (max-width: 650px)  {
+  .techs__tools {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

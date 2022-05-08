@@ -4,4 +4,13 @@
   line-height: 20px;
   color: #A0A0A0;
   text-align: left;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 650px)  {
+  .portfolio__title {
+    margin-bottom: 40px;
+    font-size: 14px;
+    line-height: 20px;
+  }
 }

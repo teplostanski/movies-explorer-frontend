@@ -18,7 +18,7 @@
 }
 
 @media screen and (max-width: 650px)  {
-  .header__auth-button {
+  .navtab__button {
     width: 82px;
     height: 26px;
     font-size: 10px;

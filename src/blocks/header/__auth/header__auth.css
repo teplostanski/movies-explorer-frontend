@@ -1,0 +1,17 @@
+.header__auth {
+  margin-left: 919px;
+  display: flex;
+  gap: 50px;
+}
+
+@media screen and (max-width: 1024px)  {
+  .header__auth {
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 650px)  {
+  .header__auth {
+    gap: 14px;
+  }
+}

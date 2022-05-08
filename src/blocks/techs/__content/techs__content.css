@@ -7,3 +7,10 @@
   width: 100%;
   align-self: center;
 }
+
+@media screen and (max-width: 1024px)  {
+  .techs__content {
+    padding-top: 83px;
+    max-width: 668px;
+  }
+}
