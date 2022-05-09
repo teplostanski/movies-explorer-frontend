@@ -13,11 +13,14 @@ function SearchForm(props) {
   return (
     <div className="search">
       <form className="search__form" noValidate onSubmit={handleSubmit}>
-        <div className="search__form-field">
-          <input id="search__form-input" required className="search__form-input"
-                 name="search-input" placeholder="Фильм"/>
-          <button className="search__submit-button" type="submit">Поиск</button>
+        <div className="search__form-container">
+          <div className="search__form-field">
+            <input id="search__form-input" required className="search__form-input"
+                   name="search-input" placeholder="Фильм"/>
+          </div>
+          <button className="search__submit-button" type="submit"></button>
         </div>
+
         <FilterCheckbox/>
       </form>
     </div>

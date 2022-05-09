@@ -6,6 +6,7 @@ import React from "react";
 import {CurrentUserContext} from "../../contexts/CurrentUserContext";
 import {BrowserRouter} from "react-router-dom";
 import Main from "../Main/Main";
+import Movies from "../Movies/Movies";
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
         <BrowserRouter>
           <Header isLoggedIn={loggedIn} handleLogout={handleLogout}/>
         </BrowserRouter>
-        <Main/>
+        <Movies/>
         <Footer/>
 
       </div>
