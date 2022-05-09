@@ -3,3 +3,9 @@
   gap: 20px;
   align-items: center;
 }
+
+@media screen and (max-width: 650px) {
+  .footer__link {
+    font-size: 12px;
+    line-height: 15px;  }
+}

@@ -1,7 +1,17 @@
 .footer__content {
   max-width: 1140px;
   height: 56px;
+  width: 100%;
   border-top: 1px solid rgb(232, 232, 232);
   display: flex;
   justify-content: space-between;
+  align-self: center;
+}
+
+@media screen and (max-width: 650px) {
+  .footer__content {
+    width: 300px;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
 }

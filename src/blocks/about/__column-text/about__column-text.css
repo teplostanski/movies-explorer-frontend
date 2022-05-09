@@ -11,3 +11,11 @@
     margin-top: 22px;
   }
 }
+
+@media screen and (max-width: 650px)  {
+  .about__column-text {
+    font-size: 11px;
+    line-height: 16px;
+    margin-top: 18px;
+  }
+}

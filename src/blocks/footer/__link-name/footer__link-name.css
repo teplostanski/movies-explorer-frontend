@@ -6,3 +6,9 @@
   color: #000000;
   text-decoration: none;
 }
+
+@media screen and (max-width: 650px) {
+  .footer__link-name {
+    font-size: 12px;
+    line-height: 15px;  }
+}

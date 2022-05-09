@@ -7,5 +7,7 @@
 @media screen and (max-width: 650px)  {
   .about__columns {
     flex-direction: column;
+    padding-top: 62px;
+    gap: 40px;
   }
 }

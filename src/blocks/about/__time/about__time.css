@@ -4,3 +4,9 @@
   align-items: center;
   height: 36px;
 }
+
+@media screen and (max-width: 650px)  {
+  .about__time {
+    height: 35px;
+  }
+}

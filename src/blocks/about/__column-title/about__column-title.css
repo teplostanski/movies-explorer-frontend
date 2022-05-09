@@ -6,3 +6,11 @@
   margin-top: 70px;
   margin-block-end: 0;
 }
+
+@media screen and (max-width: 650px)  {
+  .about__column-title {
+    font-size: 18px;
+    line-height: 22px;
+    margin-top: 0;
+  }
+}

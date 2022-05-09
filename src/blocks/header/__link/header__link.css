@@ -3,6 +3,7 @@
   font-size: 12px;
   line-height: 16px;
   color: #000000;
+  align-self: center;
   text-decoration: none;
   list-style-type: none;
   transition: opacity 0.2s ease-out;

@@ -6,12 +6,12 @@
 
 @media screen and (max-width: 1024px)  {
   .header__auth {
-    gap: 30px;
+    margin-left: 487px;
   }
 }
 
 @media screen and (max-width: 650px)  {
   .header__auth {
-    gap: 14px;
+    margin-left: 122px;
   }
 }

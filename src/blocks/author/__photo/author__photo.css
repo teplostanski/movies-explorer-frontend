@@ -10,3 +10,9 @@
     max-width: 255px;
   }
 }
+
+@media screen and (max-width: 650px)  {
+  .author__photo {
+    max-width: 292px;
+  }
+}

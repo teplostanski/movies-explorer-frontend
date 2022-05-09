@@ -14,3 +14,9 @@
     max-width: 668px;
   }
 }
+
+@media screen and (max-width: 650px)  {
+  .techs__content {
+    padding-top: 63px;
+  }
+}

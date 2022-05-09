@@ -1,5 +1,6 @@
 .author {
   width: 100%;
+  margin: 0 70px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -8,6 +9,7 @@
 
 @media screen and (max-width: 1024px)  {
   .author {
+  	margin: 0 50px;
     max-width: 668px;
   }
 }
@@ -15,5 +17,6 @@
 @media screen and (max-width: 650px)  {
   .author {
     max-width: 284px;
+    margin: 0 18px;
   }
 }
