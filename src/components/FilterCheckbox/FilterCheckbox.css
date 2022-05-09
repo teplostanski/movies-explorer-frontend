@@ -1,0 +1,5 @@
+@import url(../../blocks/checkbox/checkbox.css);
+@import url(../../blocks/checkbox/__toggle/checkbox__toggle.css);
+@import url(../../blocks/checkbox/__indicator/checkbox__indicator.css);
+@import url(../../blocks/checkbox/__indicator/__active/checkbox__indicator_active.css);
+@import url(../../blocks/checkbox/__label/checkbox__label.css);

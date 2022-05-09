@@ -1,0 +1,15 @@
+.search__form-input {
+  font-size: 14px;
+  line-height: 20px;
+  background-color: #F9F9F9;
+  color: #A0A0A0;
+  font-weight: 400;
+  border: none;
+  border-radius: 8px;
+  margin-left: 18px;
+}
+
+.search__form-input:focus{
+  outline: none;
+  background-color: transparent;
+}

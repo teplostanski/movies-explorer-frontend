@@ -1,0 +1,9 @@
+.search__form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 1140px;
+  width: 100%;
+  align-self: center;
+  margin: 70px auto 44px auto;
+}

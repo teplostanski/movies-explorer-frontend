@@ -1,0 +1,11 @@
+.search__form-field {
+  display: flex;
+  background-color: #F9F9F9;
+  border-radius: 8px;
+  max-width: 1140px;
+  width: 100%;
+  height: 50px;
+  justify-content: space-between;
+  align-self: center;
+  align-items: center;
+}
