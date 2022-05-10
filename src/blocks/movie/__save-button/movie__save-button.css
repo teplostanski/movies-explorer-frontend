@@ -6,8 +6,9 @@
   cursor: pointer;
   background-image: url(../../../images/movie/no-like.svg);
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: left bottom;
   box-shadow: none;
   align-self: auto;
   padding: 0;
+  margin-right: 14px;
 }
