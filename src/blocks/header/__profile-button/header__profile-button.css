@@ -1,0 +1,17 @@
+.header__profile-button {
+  width: 100px;
+  height: 32px;
+  border: 2px solid #AAAAAA;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  cursor: pointer;
+  gap: 7px;
+  align-self: auto;
+  margin: 21px 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+}

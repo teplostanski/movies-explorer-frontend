@@ -1,0 +1,20 @@
+.header__links {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+/*@media screen and (max-width: 1024px) {
+  .header__links {
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .header__links {
+    gap: 14px
+  }
+}*/
