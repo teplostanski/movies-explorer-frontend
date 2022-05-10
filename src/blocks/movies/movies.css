@@ -1,9 +1,9 @@
 .movies {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  grid-row-gap:38px;
-  grid-column-gap: 20px;
-  margin: 77px auto 10px auto;
+  grid-row-gap:37px;
+  grid-column-gap: 24px;
+  margin: 80px auto 10px auto;
   justify-content: center;
 }

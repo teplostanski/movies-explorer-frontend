@@ -1,0 +1,13 @@
+.movie__save-button {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  background-image: url(../../../images/movie/no-like.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: none;
+  align-self: auto;
+  padding: 0;
+}

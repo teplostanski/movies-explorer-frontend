@@ -4,7 +4,8 @@
   height: 20px;
   border-radius: 20px;
   background-color: #FFFFFF;
-  box-shadow: 0px 4px 10px #C4C4C4;
+  /*box-shadow: 0px 4px 8px 0px rgba(50, 50, 71, 0.06);*/
+  box-shadow: 0px 4px 4px 0px rgba(50, 50, 71, 0.08);
 }
 
 .checkbox__toggle input {

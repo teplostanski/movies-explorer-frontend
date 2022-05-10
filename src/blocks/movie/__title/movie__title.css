@@ -1,0 +1,7 @@
+.movie__title {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  max-height: 32px;
+  margin: 15px 0 0 16px;
+}

@@ -4,6 +4,6 @@
   flex-direction: column;
   align-self: center;
   margin: 0 70px;
-  border-bottom: 1px solid rgb(232, 232, 232);
+  border-bottom: 1px solid #E8E8E8;
   max-width: 1140px;
 }

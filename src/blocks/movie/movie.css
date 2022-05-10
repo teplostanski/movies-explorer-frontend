@@ -1,0 +1,6 @@
+.movie {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 4px 30px 0px #00000014;
+  border-radius: 6px;
+}
