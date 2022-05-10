@@ -1,0 +1,15 @@
+.header__menu-button {
+  display: none;
+  border: none;
+  background: none;
+  margin: 15px 0;
+  padding: 0;
+  align-self: auto;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  .header__menu-button {
+    display: block;
+  }
+}

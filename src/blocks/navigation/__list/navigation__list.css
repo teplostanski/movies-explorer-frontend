@@ -1,0 +1,13 @@
+.navigation__list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (max-width: 520px)  {
+  .navigation__list {
+    gap: 24px;
+  }
+}

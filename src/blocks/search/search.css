@@ -7,3 +7,21 @@
   border-bottom: 1px solid #E8E8E8;
   max-width: 1140px;
 }
+
+@media screen and (max-width: 1024px)  {
+  .search {
+    max-width: 708px;
+  }
+}
+
+@media screen and (max-width: 720px)  {
+  .search {
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 520px)  {
+  .search {
+    max-width: 292px;
+  }
+}

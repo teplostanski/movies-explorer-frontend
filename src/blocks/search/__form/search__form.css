@@ -7,3 +7,9 @@
   align-self: center;
   margin: 77px auto 39px auto;
 }
+
+@media screen and (max-width: 520px)  {
+  .search__form {
+    margin-bottom: 63px;
+  }
+}

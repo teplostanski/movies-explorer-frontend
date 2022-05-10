@@ -1,0 +1,19 @@
+.profile__links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 70px;
+}
+
+@media screen and (max-width: 1024px)  {
+  .profile__links {
+    margin-bottom: 269px;
+  }
+}
+
+@media screen and (max-width: 520px)  {
+  .profile__links {
+    margin-bottom: 40px;
+  }
+}

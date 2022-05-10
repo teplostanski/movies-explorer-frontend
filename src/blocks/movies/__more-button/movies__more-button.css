@@ -16,3 +16,9 @@
 .movies__more-button:hover{
   background: rgba(0, 0, 0, 0.2);
 }
+
+@media screen and (max-width: 720px)  {
+  .movies__more-button {
+    width: 240px;
+  }
+}

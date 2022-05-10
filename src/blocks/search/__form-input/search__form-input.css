@@ -13,3 +13,10 @@
   outline: none;
   background-color: transparent;
 }
+
+@media screen and (max-width: 520px)  {
+  .search__form-input {
+    font-size: 16px;
+    line-height: 16px;
+  }
+}

@@ -5,7 +5,7 @@ import moviePhotoPath from '../../images/movie/exampl.png';
 
 function MoviesCard() {
   const [isSaved, setIsIsSaved] = React.useState(false);
-  const saveButtonClassName = isSaved ? "movie__save-button movie__save-button_active" : "movie__save-button movie";
+  const saveButtonClassName = isSaved ? "movie__save-button movie__save-button_active" : "movie__save-button";
   const onClickHandler = () => {
     setIsIsSaved(!isSaved);
   };

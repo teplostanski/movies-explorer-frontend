@@ -1,0 +1,9 @@
+.profile__info-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 17px 0;
+}
+
+.profile__info-row:first-child {
+  border-bottom: 1px solid #E8E8E8;
+}

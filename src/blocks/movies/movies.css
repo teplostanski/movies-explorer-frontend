@@ -7,3 +7,26 @@
   margin: 80px auto 10px auto;
   justify-content: center;
 }
+
+@media screen and (max-width: 1140px)  {
+  .movies {
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap:24px;
+    margin-top: 85px;
+  }
+}
+
+@media screen and (max-width: 890px)  {
+  .movies {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 720px)  {
+  .movies {
+    grid-template-columns: repeat(1, 1fr);
+    grid-row-gap:27px;
+    margin-top: 50px;
+  }
+}

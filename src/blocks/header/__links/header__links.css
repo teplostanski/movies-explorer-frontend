@@ -11,10 +11,10 @@
   .header__links {
     gap: 30px;
   }
-}
-
-@media screen and (max-width: 650px) {
-  .header__links {
-    gap: 14px
-  }
 }*/
+
+@media screen and (max-width: 800px) {
+  .header__links {
+	display: none;
+  }
+}

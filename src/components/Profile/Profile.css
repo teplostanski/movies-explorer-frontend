@@ -1,0 +1,10 @@
+@import url(../../blocks/profile/profile.css);
+@import url(../../blocks/profile/__content/profile__content.css);
+@import url(../../blocks/profile/__title/profile__title.css);
+@import url(../../blocks/profile/__info/profile__info.css);
+@import url(../../blocks/profile/__info-row/profile__info-row.css);
+@import url(../../blocks/profile/__row-block/profile__row-block.css);
+@import url(../../blocks/profile/__row-block/_bold/profile__row-block_bold.css);
+@import url(../../blocks/profile/__links/profile__links.css);
+@import url(../../blocks/profile/__link/profile__link.css);
+@import url(../../blocks/profile/__link/_red/profile__link_red.css);
