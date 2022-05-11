@@ -1,10 +1,10 @@
 @import url(../../blocks/profile/profile.css);
 @import url(../../blocks/profile/__content/profile__content.css);
 @import url(../../blocks/profile/__title/profile__title.css);
-@import url(../../blocks/profile/__info/profile__info.css);
-@import url(../../blocks/profile/__info-row/profile__info-row.css);
-@import url(../../blocks/profile/__row-block/profile__row-block.css);
-@import url(../../blocks/profile/__row-block/_bold/profile__row-block_bold.css);
-@import url(../../blocks/profile/__links/profile__links.css);
-@import url(../../blocks/profile/__link/profile__link.css);
-@import url(../../blocks/profile/__link/_red/profile__link_red.css);
+@import url(../../blocks/profile/__info/profile__form.css);
+@import url(../../blocks/profile/__form-field/profile__form-field.css);
+@import url(../../blocks/profile/__form-label/profile__form-label.css);
+@import url(../../blocks/profile/__form-input/profile__form-input.css);
+@import url(../../blocks/profile/__form-footer/profile__form-footer.css);
+@import url(../../blocks/profile/__button/profile__button.css);
+@import url(../../blocks/profile/__button/_red/profile__button_red.css);

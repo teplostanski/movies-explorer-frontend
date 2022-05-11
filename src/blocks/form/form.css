@@ -1,0 +1,21 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 40px;
+  justify-content: space-between;
+  height: 410px ;
+}
+
+@media screen and (max-width: 1024px)  {
+  .form {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 520px)  {
+  .form {
+    margin-left: 0;
+    height: 497px;
+  }
+}

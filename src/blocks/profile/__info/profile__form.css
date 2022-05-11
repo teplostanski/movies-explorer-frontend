@@ -1,0 +1,11 @@
+.profile__form {
+  width: 410px;
+  margin-block-start: 0;
+  padding-inline-start: 0;
+}
+
+@media screen and (max-width: 520px)  {
+  .profile__form {
+    width: 260px;
+  }
+}

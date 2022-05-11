@@ -1,0 +1,9 @@
+.profile__form-field {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+.profile__form-field:first-child {
+  border-bottom: 1px solid rgba(232, 232, 232, 1);
+}

@@ -1,0 +1,15 @@
+.form__logo {
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 1024px)  {
+  .form__logo {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 520px)  {
+  .form__logo {
+    align-self: center;
+  }
+}
