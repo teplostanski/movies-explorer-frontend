@@ -1,10 +1,9 @@
 import './AboutProject.css';
 import React from "react";
-import NavTab from "../NavTab/NavTab";
 
 function AboutProject() {
   return (
-    <section className="about">
+    <section className="about" id="about">
       <h3 className="about__title">О проекте </h3>
       <div className="about__columns">
         <article className="about__column">
