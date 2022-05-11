@@ -1,6 +1,6 @@
 .header__creds {
   display: flex;
-  gap: 50px;
+  gap: 30px;
 }
 
 @media screen and (max-width: 1024px) {
