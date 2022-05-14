@@ -1,0 +1,5 @@
+.movie__save-button_active {
+  cursor: pointer;
+  background-image: url(../../../../images/movie/like.svg);
+  background-repeat: no-repeat;
+}

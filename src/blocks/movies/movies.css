@@ -1,7 +1,7 @@
 .movies {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(auto-fit, 1fr);
   grid-row-gap:37px;
   grid-column-gap: 24px;
   margin: 80px auto 10px auto;
@@ -12,7 +12,7 @@
   .movies {
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 30px;
-    grid-row-gap:24px;
+    grid-row-gap:25px;
     margin-top: 85px;
   }
 }
@@ -20,6 +20,7 @@
 @media screen and (max-width: 890px)  {
   .movies {
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 81px;
   }
 }
 

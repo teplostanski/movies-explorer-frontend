@@ -4,3 +4,7 @@
   box-shadow: 0px 4px 30px 0px #00000014;
   border-radius: 6px;
 }
+
+.movie:hover .movie__delete-button {
+  opacity: 1;
+}

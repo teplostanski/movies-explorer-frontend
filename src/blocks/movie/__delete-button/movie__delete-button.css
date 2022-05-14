@@ -1,0 +1,16 @@
+.movie__delete-button {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  background-image: url(../../../images/movie/delete.svg);
+  background-repeat: no-repeat;
+  align-self: auto;
+  padding: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+.movie__delete-button:hover{
+  cursor: pointer;
+}

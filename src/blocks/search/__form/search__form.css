@@ -8,6 +8,13 @@
   margin: 77px auto 39px auto;
 }
 
+@media screen and (max-width: 1027px)  {
+  .search__form {
+    margin-top: 68px;
+    margin-bottom: 48px;
+  }
+}
+
 @media screen and (max-width: 520px)  {
   .search__form {
     margin-bottom: 63px;

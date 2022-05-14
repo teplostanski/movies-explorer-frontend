@@ -9,7 +9,7 @@ function Navigation(props) {
   return (
     <div className={navigationClassName}>
       <div className="navigation">
-        <button className="navigation__close-button" type="button">
+        <button className="navigation__close-button" type="button" onClick={props.onClose}>
         </button>
         <ul className="navigation__list">
           <Link className="navigation__list-item" to="/">Главная</Link>
