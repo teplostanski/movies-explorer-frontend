@@ -8,6 +8,6 @@
   .about__columns {
     flex-direction: column;
     padding-top: 62px;
-    gap: 40px;
+    gap: 45px;
   }
 }

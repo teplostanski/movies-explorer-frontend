@@ -17,6 +17,6 @@
   .about__title {
     font-size: 18px;
     line-height: 22px;
-    margin-top: 69px;
+    margin: 69px 0 25px 0;
   }
 }
