@@ -11,7 +11,6 @@ function Header(props) {
   const {currentPage, onMenuClick} = props;
   return (
     <header className="header">
-
       {props.isLoggedIn
         ?
         <>
@@ -36,11 +35,17 @@ function Header(props) {
           </button>
         </>
         :
-        <div className="header__creds">
-          <Link to="/sign-up" className="header__link"> Регистрация </Link>
-          <Link to="/sign-in">
-            <button className="header__auth-button"> Войти</button>
+
+        <div className="header__creds-container">
+          <Link to="/" className="header__logo-link">
+            <img className="header__logo" src={logoPath} alt="Лого"/>
           </Link>
+          <div className="header__creds">
+            <Link to="/sign-up" className="header__link"> Регистрация </Link>
+            <Link to="/sign-in">
+              <button className="header__auth-button"> Войти</button>
+            </Link>
+          </div>
         </div>
       }
     </header>

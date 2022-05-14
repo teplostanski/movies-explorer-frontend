@@ -7,7 +7,6 @@
   text-decoration: none;
   list-style-type: none;
   transition: opacity 0.2s ease-out;
-  letter-spacing: 0.4px;
 }
 
 .header__link:hover {
