@@ -9,7 +9,7 @@
 
 @media screen and (max-width: 1024px)  {
   .form__title {
-    margin-left: 0;
+    margin-left: 20px;
   }
 }
 
