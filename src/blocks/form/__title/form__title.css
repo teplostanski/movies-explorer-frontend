@@ -16,7 +16,6 @@
 @media screen and (max-width: 520px)  {
   .form__title {
     text-align: center;
-    margin-top: 50px;
-    margin-bottom: 80px;
+    margin: 47px 0 80px 0;
   }
 }
