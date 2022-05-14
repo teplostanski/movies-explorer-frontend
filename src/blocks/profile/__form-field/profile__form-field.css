@@ -1,7 +1,7 @@
 .profile__form-field {
   display: flex;
   justify-content: space-between;
-  margin: 15px 0;
+  margin: 17px 0;
 }
 
 .profile__form-field:first-child {

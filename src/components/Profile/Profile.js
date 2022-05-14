@@ -15,7 +15,7 @@ function Profile() {
               <input className="profile__form-input" placeholder={"Username"}/>
             </div>
             <div className="profile__form-field">
-              <label className="profile__form-label">email</label>
+              <label className="profile__form-label">E-mail</label>
               <input className="profile__form-input" placeholder={"username@example.com"}/>
             </div>
             <div className="profile__form-footer">
