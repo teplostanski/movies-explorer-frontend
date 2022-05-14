@@ -2,9 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 40px;
   justify-content: space-between;
-  height: 410px ;
+  height: 413px ;
 }
 
 @media screen and (max-width: 1024px)  {
