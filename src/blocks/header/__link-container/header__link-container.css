@@ -1,5 +1,6 @@
 .header__link-container {
   display: flex;
   gap: 20px;
-  margin-left: 63px;
+  margin-left: 62px;
+  letter-spacing: 0.4px;
 }
