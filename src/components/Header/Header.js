@@ -12,8 +12,8 @@ function Header(props) {
   return (
     <header className="header">
       <Link to="/" className="header__logo-link">
-              <img className="header__logo" src={logoPath} alt="Лого"/>
-            </Link>
+        <img className="header__logo" src={logoPath} alt="Лого"/>
+      </Link>
       {props.isLoggedIn
         ?
         <>
@@ -38,9 +38,6 @@ function Header(props) {
         :
 
         <div className="header__creds-container">
-          <Link to="/" className="header__logo-link">
-            <img className="header__logo" src={logoPath} alt="Лого"/>
-          </Link>
           <div className="header__creds">
             <Link to="/sign-up" className="header__link"> Регистрация </Link>
             <Link to="/sign-in">
