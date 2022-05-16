@@ -8,9 +8,9 @@
   justify-content: center;
 }
 
-@media screen and (max-width: 1140px)  {
+@media screen and (max-width: 1180px)  {
   .movies {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 30px;
     grid-row-gap:25px;
     margin-top: 85px;
@@ -19,8 +19,13 @@
 
 @media screen and (max-width: 890px)  {
   .movies {
-    grid-template-columns: repeat(2, 1fr);
     margin-top: 81px;
+  }
+}
+
+@media screen and (max-width: 760px)  {
+  .movies {
+    grid-column-gap: 20px;
   }
 }
 

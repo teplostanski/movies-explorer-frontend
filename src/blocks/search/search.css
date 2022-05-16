@@ -8,7 +8,7 @@
   max-width: 1140px;
 }
 
-@media screen and (max-width: 1024px)  {
+@media screen and (max-width: 1180px)  {
   .search {
     max-width: 708px;
   }

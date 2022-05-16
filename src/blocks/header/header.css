@@ -7,13 +7,13 @@
   margin: 0 70px;
 }
 
-@media screen and (max-width: 1200px)  {
+/*@media screen and (max-width: 1200px)  {
   .header {
     max-width: 960px;
   }
-}
+}*/
 
-@media screen and (max-width: 1024px)  {
+@media screen and (max-width: 1180px)  {
   .header {
     margin: 0 30px;
     max-width: 708px;
