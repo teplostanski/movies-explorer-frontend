@@ -1,16 +1,18 @@
 .header__links {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-content: center;
   flex-direction: row;
   align-items: center;
-  margin-left: 32%;
+  gap: 33%;
+  /* margin-left: 32%;*/
 }
 
 @media screen and (max-width: 1180px) {
   .header__links {
-    margin-left: 20%;
+    /*margin-left: 20%;*/
+    gap: 21%;
   }
 }
 
