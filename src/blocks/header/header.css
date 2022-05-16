@@ -4,7 +4,7 @@
   width: 100%;
   align-self: center;
   max-width: 1140px;
-  margin: 0 70px;
+  margin: 18px 70px;
 }
 
 /*@media screen and (max-width: 1200px)  {
@@ -15,7 +15,7 @@
 
 @media screen and (max-width: 1180px)  {
   .header {
-    margin: 0 30px;
+    margin: 18px 30px;
     max-width: 708px;
   }
 }

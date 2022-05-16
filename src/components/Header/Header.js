@@ -11,13 +11,14 @@ function Header(props) {
   const {currentPage, onMenuClick} = props;
   return (
     <header className="header">
+      <Link to="/" className="header__logo-link">
+              <img className="header__logo" src={logoPath} alt="Лого"/>
+            </Link>
       {props.isLoggedIn
         ?
         <>
           <div className="header__links">
-            <Link to="/" className="header__logo-link">
-              <img className="header__logo" src={logoPath} alt="Лого"/>
-            </Link>
+
             <div className="header__link-container">
               <Link to="/movies"
                     className={currentPage === 'movies' ? "header__link header__link_active" : "header__link"}>

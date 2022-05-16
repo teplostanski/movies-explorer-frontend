@@ -5,13 +5,14 @@
   align-content: center;
   flex-direction: row;
   align-items: center;
+  margin-left: 32%;
 }
 
-/*@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1180px) {
   .header__links {
-    gap: 30px;
+    margin-left: 20%;
   }
-}*/
+}
 
 @media screen and (max-width: 800px) {
   .header__links {
