@@ -33,7 +33,7 @@
 @media screen and (max-width: 650px)  {
   .promo {
     min-height: 589px;
-    max-width: 292px;
+    /*max-width: 292px;*/
     margin: 17px 40px 0 40px;
   }
 }

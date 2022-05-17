@@ -14,7 +14,7 @@
   }
 }
 
-@media screen and (max-width: 540px)  {
+@media screen and (max-width: 520px)  {
   .movie__photo {
     width: 300px;
     margin-bottom: 6px;

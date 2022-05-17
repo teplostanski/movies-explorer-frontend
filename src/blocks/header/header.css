@@ -29,6 +29,12 @@
 @media screen and (max-width: 650px)  {
   .header {
     margin: 3px 10px 0 10px;
+    /*max-width: 292px;*/
+  }
+}
+
+@media screen and (max-width: 520px)  {
+  .header {
     max-width: 292px;
   }
 }
