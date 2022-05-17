@@ -11,9 +11,15 @@
   align-self: center;
 }
 
-@media screen and (max-width: 1200px)  {
+/*@media screen and (max-width: 1200px)  {
   .promo {
     max-width: 960px;
+  }
+}*/
+
+@media screen and (max-width: 1180px)  {
+  .promo {
+    max-width: 708px;
   }
 }
 
@@ -35,5 +41,11 @@
     min-height: 589px;
     /*max-width: 292px;*/
     margin: 17px 40px 0 40px;
+  }
+}
+
+@media screen and (max-width: 520px)  {
+  .promo {
+    max-width: 292px;
   }
 }

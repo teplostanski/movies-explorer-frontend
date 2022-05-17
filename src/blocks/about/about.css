@@ -4,6 +4,12 @@
   align-self: center;
 }
 
+@media screen and (max-width: 1180px)  {
+  .about {
+    max-width: 708px;
+  }
+}
+
 @media screen and (max-width: 1024px)  {
   .about {
     max-width: 668px;
