@@ -37,3 +37,9 @@
     margin: 17px 40px 0 40px;
   }
 }
+
+@media screen and (max-width: 520px)  {
+  .promo {
+    max-width: 292px;
+  }
+}
