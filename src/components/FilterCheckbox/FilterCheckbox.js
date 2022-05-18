@@ -1,11 +1,14 @@
 import React from "react";
 import "./FilterCheckbox.css"
 
-function FilterCheckbox() {
+function FilterCheckbox(props) {
+  const { onChange } = props;
   const [isToggled, setIsToggled] = React.useState(false);
   const indicatorClassName = isToggled ? "checkbox__indicator checkbox__indicator_active" : "checkbox__indicator";
   const onClickHandler = () => {
-    setIsToggled(!isToggled);
+    const value = !isToggled;
+    setIsToggled(value);
+    onChange(value);
   };
   return (
         <div className="checkbox">
