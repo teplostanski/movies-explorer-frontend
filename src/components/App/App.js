@@ -10,23 +10,62 @@ import Profile from "../Profile/Profile";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
 import SavedMovies from "../SavedMovies/SavedMovies";
-
+import {CurrentUserContext} from "../../contexts/CurrentUserContext";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import * as auth from "../../utils/auth";
 
 function App() {
+  const [isInitialized, setIsInitialized] = React.useState(false);
+  const [currentUser, setCurrentUser] = React.useState({});
+  const isLoggedIn = !!currentUser.email;
+
+  React.useEffect(() => {
+    auth.checkToken().then((res) => {
+      if (res) {
+        setCurrentUser({name: res.user.name, email: res.user.email});
+      } else {
+        setCurrentUser({});
+      }
+      setIsInitialized(true);
+    }).catch((error) => {
+      setIsInitialized(true);
+      console.error(error);
+    });
+  }, []);
+
   return (
-      <div className="page">
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Main/>}/>
-            <Route path="/movies" element={<Movies/>}/>
-            <Route path="/saved-movies" element={<SavedMovies/>}/>
-            <Route path="/profile" element={<Profile/>}/>
-            <Route path="/sign-up" element={<Register/>}/>
-            <Route path="/sign-in" element={<Login/>}/>
-            <Route path="*" element={<NotFound/>}/>
-          </Routes>
-        </BrowserRouter>
-      </div>
+    <CurrentUserContext.Provider value={currentUser}>
+      {isInitialized && (
+        <div className="page">
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Main/>}/>
+              <Route path="/movies"
+                     element={
+                       <ProtectedRoute redirectTo="/sign-up" loggedIn={isLoggedIn}>
+                         <Movies/>
+                       </ProtectedRoute>
+                     }/>
+              <Route path="/saved-movies"
+                     element={
+                       <ProtectedRoute redirectTo="/sign-up" loggedIn={isLoggedIn}>
+                         <SavedMovies/>
+                       </ProtectedRoute>
+                     }/>
+              <Route path="/profile"
+                     element={
+                       <ProtectedRoute redirectTo="/sign-up" loggedIn={isLoggedIn}>
+                         <Profile currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+                       </ProtectedRoute>
+                     }/>
+              <Route path="/sign-up" element={<Register/>}/>
+              <Route path="/sign-in" element={<Login/>}/>
+              <Route path="*" element={<NotFound/>}/>
+            </Routes>
+          </BrowserRouter>
+        </div>
+      )}
+    </CurrentUserContext.Provider>
 
   );
 }
