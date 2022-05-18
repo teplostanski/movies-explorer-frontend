@@ -1,0 +1,24 @@
+.profile__form-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 70px;
+  margin-bottom: 65px;
+  margin-top: 202px;
+}
+
+@media screen and (max-width: 1024px)  {
+  .profile__form-footer {
+    margin-bottom: 269px;
+    margin-top: 191px ;
+
+  }
+}
+
+@media screen and (max-width: 520px)  {
+  .profile__form-footer {
+    margin-bottom: 40px;
+    margin-top: 361px;
+  }
+}

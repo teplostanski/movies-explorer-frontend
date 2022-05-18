@@ -1,0 +1,7 @@
+.header__profile-link {
+  text-decoration: none;
+}
+
+.header__profile-link:hover {
+  opacity: 0.6;
+}

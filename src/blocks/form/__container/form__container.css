@@ -1,0 +1,22 @@
+.form__container {
+  width: 436px;
+  align-items: center;
+  margin: 70px auto 0 auto;
+  padding-bottom: 70px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 1024px)  {
+  .form__container {
+    margin: 232px auto 0 auto;
+    padding-bottom: 232px;
+  }
+}
+
+@media screen and (max-width: 520px)  {
+  .form__container {
+    margin: 56px auto 0 auto;
+    width: 260px;
+    padding-bottom: 30px;
+  }
+}

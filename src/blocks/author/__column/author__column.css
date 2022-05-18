@@ -1,0 +1,13 @@
+.author__column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 600px;
+  width: 100%;
+}
+
+@media screen and (max-width: 1024px)  {
+  .author__column {
+    max-width: 364px;
+  }
+}

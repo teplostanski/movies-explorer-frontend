@@ -1,0 +1,7 @@
+@import url(../../blocks/navigation/navigation.css);
+@import url(../../blocks/navigation/__close-button/navigation__close-button.css);
+@import url(../../blocks/navigation/__overlay/navigation__overlay.css);
+@import url(../../blocks/navigation/__list/navigation__list.css);
+@import url(../../blocks/navigation/__list-item/navigation__list-item.css);
+@import url(../../blocks/navigation/__button-container/navigation__close-button.css);
+@import url(../../blocks/navigation/__overlay/_active/navigation__overlay_active.css);

@@ -1,0 +1,9 @@
+.navigation__list-item {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000;
+  text-decoration: none;
+  list-style-type: none;
+  align-self: center;
+}

@@ -1,0 +1,12 @@
+.not-found__return-block {
+  position: absolute;
+  left: 50%;
+  bottom: 46px;
+  transform: translate(-50%, 0);
+}
+
+@media screen and (max-width: 520px)  {
+  .not-found__return-block {
+    bottom: 30px;
+  }
+}

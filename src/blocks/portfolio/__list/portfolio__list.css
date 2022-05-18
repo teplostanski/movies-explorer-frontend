@@ -1,0 +1,15 @@
+.portfolio__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 29px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+@media screen and (max-width: 650px)  {
+  .portfolio__list {
+    gap: 39px;
+  }
+}

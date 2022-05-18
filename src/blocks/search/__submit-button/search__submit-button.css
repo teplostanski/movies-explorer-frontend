@@ -1,0 +1,31 @@
+.search__submit-button {
+  width: 45px;
+  height: 44px;
+  border-radius: 18%;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  border: none;
+  background-image: url(../../../images/search/search-icon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 6px 0 6px 11px;
+}
+
+@media screen and (max-width: 1024px)  {
+  .search__submit-button {
+    width: 47px;
+  }
+}
+
+@media screen and (max-width: 520px)  {
+  .search__submit-button {
+    width: 80px;
+    height: 44px;
+    margin-right: 6px;
+  }
+}
+
+

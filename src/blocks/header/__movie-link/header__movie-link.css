@@ -1,0 +1,5 @@
+.header__movie-link {
+  display: flex;
+  margin-left: 64px;
+  gap: 17px;
+}

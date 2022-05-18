@@ -1,0 +1,25 @@
+.form__link {
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 400;
+  text-decoration: none;
+  list-style-type: none;
+  cursor: pointer;
+  margin-left: 6px;
+}
+
+.form__link:hover {
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.form__link:visited {
+  color: #000000;
+}
+
+@media screen and (max-width: 520px)  {
+  .form__link {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

@@ -1,0 +1,20 @@
+.not-found__return-link {
+  text-decoration: none;
+  font-weight: 400;
+  color: #000000;
+  font-size: 14px;
+  line-height: 17px;
+  cursor: pointer;
+}
+
+.not-found__return-link:hover {
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 520px)  {
+  .not-found__return-link {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

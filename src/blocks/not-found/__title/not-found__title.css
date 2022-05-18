@@ -1,0 +1,15 @@
+.not-found__title {
+  font-weight: 400;
+  font-size: 140px;
+  line-height: 169px;
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+@media screen and (max-width: 520px)  {
+  .not-found__title {
+    font-size: 80px;
+    line-height: 97px;
+  }
+}

@@ -1,0 +1,14 @@
+.form__input-field {
+  border: none;
+  border-bottom: 1px solid #E8E8E8;
+  padding-bottom: 7px;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 400;
+  color: #000000;
+}
+
+.form__input-field:focus{
+  outline: none;
+  background-color: transparent;
+}

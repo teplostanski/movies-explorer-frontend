@@ -1,0 +1,11 @@
+@media screen and (max-width: 1024px)  {
+  .form__logo-container {
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width: 520px)  {
+  .form__logo-container {
+    margin-left: 111px;
+  }
+}

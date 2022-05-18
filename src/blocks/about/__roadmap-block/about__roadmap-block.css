@@ -1,0 +1,13 @@
+.about__roadmap-block {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 228px;
+}
+
+@media screen and (max-width: 650px)  {
+  .about__roadmap-block{
+    gap: 10px;
+  }
+}

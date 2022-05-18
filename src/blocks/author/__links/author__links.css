@@ -1,0 +1,22 @@
+.author__links {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-self: flex-start;
+  margin-top: 99px;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+@media screen and (max-width: 1024px)  {
+  .author__links {
+    margin-top: 107px;
+  }
+}
+
+@media screen and (max-width: 650px)  {
+  .author__links {
+    margin-top: 40px;
+    gap: 26px;
+  }
+}

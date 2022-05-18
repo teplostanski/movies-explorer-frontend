@@ -1,0 +1,14 @@
+.profile__form-input {
+  display: flex;
+  border: none;
+  font-size: 11px;
+  line-height: 13px;
+  margin-bottom: 16px;
+  font-weight: 400;
+  justify-content: flex-end;
+  text-align: end;
+  outline: none;
+}
+.profile__form-input::placeholder {
+  color: #000000;
+}

@@ -1,0 +1,22 @@
+.movie__photo {
+  /*width: 270px ;*/
+}
+
+@media screen and (max-width: 890px)  {
+  .movie__photo {
+    width: 339px;
+  }
+}
+
+@media screen and (max-width: 720px)  {
+  .movie__photo {
+    width: 500px;
+  }
+}
+
+@media screen and (max-width: 520px)  {
+  .movie__photo {
+    width: 300px;
+    margin-bottom: 6px;
+  }
+}

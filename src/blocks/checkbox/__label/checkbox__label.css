@@ -1,0 +1,13 @@
+.checkbox__label{
+  font-size: 12px;
+  line-height: 20px;
+  margin-left: 11px;
+}
+
+@media screen and (max-width: 520px)  {
+  .checkbox__label {
+    font-size: 11px;
+    margin-left: 13px;
+
+  }
+}

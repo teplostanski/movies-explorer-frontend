@@ -1,0 +1,18 @@
+.author__content {
+  display: flex;
+  border-top: 1px solid rgb(0, 0, 0);
+  max-width: 1140px;
+  width: 100%;
+  align-self: center;
+  justify-content: space-between;
+  padding-top: 66px;
+}
+
+@media screen and (max-width: 650px)  {
+  .author__content {
+    flex-direction: column-reverse;
+    max-width: 292px;
+    padding-top: 60px;
+    align-items: center;
+  }
+}

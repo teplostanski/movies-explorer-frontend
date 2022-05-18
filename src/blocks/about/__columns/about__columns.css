@@ -1,0 +1,13 @@
+.about__columns {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgb(0, 0, 0);
+}
+
+@media screen and (max-width: 650px)  {
+  .about__columns {
+    flex-direction: column;
+    padding-top: 62px;
+    gap: 45px;
+  }
+}

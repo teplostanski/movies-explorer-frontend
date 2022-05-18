@@ -1,0 +1,23 @@
+.header__links {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-content: center;
+  flex-direction: row;
+  align-items: center;
+  gap: 33%;
+  /* margin-left: 32%;*/
+}
+
+@media screen and (max-width: 1180px) {
+  .header__links {
+    /*margin-left: 20%;*/
+    gap: 21%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .header__links {
+	display: none;
+  }
+}

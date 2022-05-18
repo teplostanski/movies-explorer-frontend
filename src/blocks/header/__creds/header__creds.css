@@ -1,0 +1,16 @@
+.header__creds {
+  display: flex;
+  gap: 30px;
+}
+
+@media screen and (max-width: 1024px) {
+  .header__creds {
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .header__creds {
+    gap: 14px
+  }
+}

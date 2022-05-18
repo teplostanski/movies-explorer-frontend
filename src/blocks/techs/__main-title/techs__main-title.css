@@ -1,0 +1,25 @@
+.techs__main-title {
+  font-size: 50px;
+  line-height: 58px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  max-width: 730px;
+  font-weight: 400;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  align-self: center;
+}
+
+@media screen and (max-width: 1024px)  {
+  .techs__main-title {
+    font-size: 50px;
+    line-height: 52px;
+  }
+}
+
+@media screen and (max-width: 650px)  {
+  .techs__main-title {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}
