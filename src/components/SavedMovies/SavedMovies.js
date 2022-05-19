@@ -6,7 +6,8 @@ import SavedMoviesCardList from "../SavedMoviesCardList/SavedMoviesCardList";
 import Footer from "../Footer/Footer";
 
 
-function SavedMovies() {
+function SavedMovies(props) {
+  const { loggedIn } = props;
   const [isOpen, setIsOpen] = React.useState(false);
 
   function handleOpen() {
@@ -19,7 +20,7 @@ function SavedMovies() {
 
   return (
     <>
-      <Header currentPage="saved-movies" isLoggedIn={true} onMenuClick={handleOpen}/>
+      <Header currentPage="saved-movies" isLoggedIn={loggedIn} onMenuClick={handleOpen}/>
       <SearchForm/>
       <SavedMoviesCardList/>
       <Navigation isOpen={isOpen} onClose={handleClose} />

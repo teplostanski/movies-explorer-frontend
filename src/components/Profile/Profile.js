@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 import { mainApi } from "../../utils/MainApi";
 
 function Profile(props) {
-  const { currentUser, setCurrentUser } = props;
+  const { currentUser, setCurrentUser, loggedIn } = props;
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
 
@@ -49,7 +49,7 @@ function Profile(props) {
 
   return (
     <>
-      <Header isLoggedIn={true}/>
+      <Header isLoggedIn={loggedIn}/>
       <section className="profile">
         <div className="profile__content">
           <h1 className="profile__title">Привет, {currentUser.name}!</h1>

@@ -9,7 +9,8 @@ import { filterMovies } from "../../utils/utils";
 import Preloader from "../Preloader/Preloader";
 
 
-function Movies() {
+function Movies(props) {
+  const { loggedIn } = props;
   const [isLoading, setIsLoading] = React.useState(false);
   const [searchParams, setSearchParams] = React.useState({});
   const [movies, setMovies] = React.useState(null);
@@ -43,7 +44,7 @@ function Movies() {
 
   return (
     <>
-      <Header currentPage="movies" isLoggedIn={true} onMenuClick={handleOpen}/>
+      <Header currentPage="movies" isLoggedIn={loggedIn} onMenuClick={handleOpen}/>
       <SearchForm onSubmit={onSearchSubmit}/>
       {isLoading ? (
         <Preloader/>

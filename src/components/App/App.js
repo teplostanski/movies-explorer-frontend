@@ -39,23 +39,23 @@ function App() {
         <div className="page">
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Main/>}/>
+              <Route path="/" element={<Main loggedIn={isLoggedIn}/>}/>
               <Route path="/movies"
                      element={
                        <ProtectedRoute redirectTo="/sign-up" loggedIn={isLoggedIn}>
-                         <Movies/>
+                         <Movies loggedIn={isLoggedIn}/>
                        </ProtectedRoute>
                      }/>
               <Route path="/saved-movies"
                      element={
                        <ProtectedRoute redirectTo="/sign-up" loggedIn={isLoggedIn}>
-                         <SavedMovies/>
+                         <SavedMovies loggedIn={isLoggedIn}/>
                        </ProtectedRoute>
                      }/>
               <Route path="/profile"
                      element={
                        <ProtectedRoute redirectTo="/sign-up" loggedIn={isLoggedIn}>
-                         <Profile currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+                         <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} loggedIn={isLoggedIn}/>
                        </ProtectedRoute>
                      }/>
               <Route path="/sign-up" element={<Register/>}/>
