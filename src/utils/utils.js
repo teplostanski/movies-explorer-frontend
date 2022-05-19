@@ -1,3 +1,16 @@
+export function mergeMovies(movies, savedMovies) {
+  if (movies) {
+    if (savedMovies) {
+      return movies.map(it => {
+        const isSaved = savedMovies.find(savedMovie => savedMovie.movieId === it.id);
+        return { ...it, isSaved: isSaved };
+      });
+    }
+    return movies;
+  }
+  return null
+}
+
 export function filterMovies(movies, keyword, isShort) {
   if (movies) {
     const result = [];
@@ -33,4 +46,15 @@ export function timeMovie(time) {
   const hours = Math.floor(time / 60);
   const minutes = time % 60;
   return `${hours}ч${minutes}м`
+}
+
+export function removeMovieById(movies, key, id) {
+  const index = movies.findIndex(it => it[key] === id);
+  if (index === -1) {
+    return movies;
+  } else {
+    const result = [...movies];
+    result.splice(index, 1);
+    return result;
+  }
 }

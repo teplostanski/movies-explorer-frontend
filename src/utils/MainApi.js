@@ -1,4 +1,5 @@
 import { AUTH_PARAMS } from "./auth";
+import { getMovieImageUrl } from "./utils";
 
 class Api {
   constructor(params) {
@@ -48,6 +49,48 @@ class Api {
         return this._getResponseData(res)
       });
   }
+
+  fetchSavedMovies() {
+    return fetch(`${this._params.baseRoute}/movies`, this._queryParams)
+      .then(res => {
+        return this._getResponseData(res)
+      });
+  }
+
+  saveMovie(movie) {
+    const queryParams = {
+      ...this._queryParams,
+      method: 'POST',
+      body: JSON.stringify({
+        country: movie.country,
+        director: movie.director,
+        duration: movie.duration,
+        year: movie.year,
+        description: movie.description,
+        image: getMovieImageUrl(movie.image.url),
+        trailerLink: movie.trailerLink,
+        nameRU: movie.nameRU,
+        nameEN: movie.nameEN,
+        thumbnail: movie.trailerLink,
+        movieId: movie.id,
+      })
+    }
+    return fetch(`${this._params.baseRoute}/movies`, queryParams)
+      .then(res => {
+        return this._getResponseData(res)
+      });
+  }
+
+  removeMovie(id) {
+    const queryParams = {
+      ...this._queryParams,
+      method: 'DELETE',
+    }
+    return fetch(`${this._params.baseRoute}/movies/${id}`, queryParams)
+      .then(res => {
+        return this._getResponseData(res)
+      });
+  }
 }
 
-export const mainApi = new Api(AUTH_PARAMS);
+export const mainApi = new Api( AUTH_PARAMS );

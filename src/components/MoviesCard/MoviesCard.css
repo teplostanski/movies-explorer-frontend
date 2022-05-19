@@ -5,3 +5,4 @@
 @import url(../../blocks/movie/__time/movie__time.css);
 @import url(../../blocks/movie/__save-button/movie__save-button.css);
 @import url(../../blocks/movie/__save-button/_active/movie__save-button_active.css);
+@import url(../../blocks/movie/__delete-button/movie__delete-button.css);
