@@ -1,10 +1,11 @@
 import React from "react";
+import './Movies.css'
 import SearchForm from "../SearchForms/SearchForm";
 import Navigation from "../Navigation/Navigation";
 import Header from "../Header/Header";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Footer from "../Footer/Footer";
-import {fetchMovies} from "../../utils/MoviesApi";
+import { fetchMovies } from "../../utils/MoviesApi";
 import { filterMovies, mergeMovies, removeMovieById } from "../../utils/utils";
 import Preloader from "../Preloader/Preloader";
 import { mainApi } from "../../utils/MainApi";
@@ -40,7 +41,7 @@ function Movies(props) {
     }
 
     if (!savedMovies) {
-       mainApi.fetchSavedMovies()
+      mainApi.fetchSavedMovies()
         .then((res) => setSavedMovies(res.movies || []))
         .catch((err) => {
           console.error(err)
@@ -54,14 +55,14 @@ function Movies(props) {
     if (movie.isSaved) {
       const savedMovie = savedMovies.find(it => it.movieId === movie.id);
       if (savedMovie) {
-         mainApi.removeMovie(savedMovie._id)
+        mainApi.removeMovie(savedMovie._id)
           .then(() => setSavedMovies(removeMovieById(savedMovies, 'movieId', movie.id)))
           .catch(err => console.error(err));
       } else {
         console.error('Ничего не найдено :(');
       }
     } else {
-       mainApi.saveMovie(movie)
+      mainApi.saveMovie(movie)
         .then((res) => setSavedMovies([...savedMovies, res.movie]))
         .catch(err => console.error(err));
     }
@@ -78,11 +79,11 @@ function Movies(props) {
         <Preloader/>
       ) : (
         <>
-          {!!searchParams.searchQuery && !movies && (
-            <div>Ничего не найдено</div>
+          {!!searchParams.searchQuery && (!displayMovies || !displayMovies.length) && (
+            <p className="movies__message">По вашему запросу ничего не найдено</p>
           )}
-          {!!searchParams.searchQuery && !!movies && (
-            <MoviesCardList movies={displayMovies} onToggleSave={onToggleSave}/>
+          {!!searchParams.searchQuery && (!!displayMovies && !!displayMovies.length) && (
+            <MoviesCardList currentPage="movies" movies={displayMovies} onToggleSave={onToggleSave}/>
           )}
         </>
       )}

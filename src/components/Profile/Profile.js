@@ -7,6 +7,7 @@ function Profile(props) {
   const { currentUser, setCurrentUser, loggedIn } = props;
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
+  const [status, setStatus] = React.useState(null);
 
   function handleNameChange(e) {
     setName(e.target.value)
@@ -14,6 +15,10 @@ function Profile(props) {
 
   function handleEmailChange(e) {
     setEmail(e.target.value)
+  }
+
+  function resetStatus() {
+    setTimeout(() => setStatus(null), 2000);
   }
 
   function handleUpdateUser(name, email) {
@@ -25,9 +30,13 @@ function Profile(props) {
             name: resultUserInfo.user.name,
             email: resultUserInfo.user.email,
             _id: resultUserInfo.user._id
-        });
+        })
+        setStatus('success');
+        resetStatus();
       })
       .catch((err) => {
+        setStatus('error');
+        resetStatus();
         console.log(err);
       });
   }
@@ -63,7 +72,9 @@ function Profile(props) {
               <input className="profile__form-input" placeholder={currentUser.email} value={email} onChange={handleEmailChange}/>
             </div>
             <div className="profile__form-footer">
-              <button className="profile__button" type={"submit"}>Редактировать</button>
+              {!status && <button className="profile__button" type={"submit"}>Редактировать</button>}
+              {status === 'success' && <span className="profile__message">Данные успешно изменены!</span>}
+              {status === 'error' && <span className="profile__message">Произошла ошибка, данные не обновлены</span>}
               <button className="profile__button profile__button_red" onClick={handleLogout}>Выйти из аккаунта</button>
             </div>
           </form>

@@ -1,4 +1,5 @@
-import React from "react";
+import React from "react"
+import './SavedMovies.css'
 import SearchForm from "../SearchForms/SearchForm";
 import Navigation from "../Navigation/Navigation";
 import Header from "../Header/Header";
@@ -7,7 +8,6 @@ import { mainApi } from "../../utils/MainApi";
 import { removeMovieById } from "../../utils/utils";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Preloader from "../Preloader/Preloader";
-
 
 function SavedMovies(props) {
   const {loggedIn} = props;
@@ -48,11 +48,11 @@ function SavedMovies(props) {
       <SearchForm/>
       {isLoading ? (<Preloader/>) : (
         <>
-          {!savedMovies && (
-            <div>Нет сохранённых фильмов</div>
+          {(!savedMovies || !savedMovies.length) && (
+            <p className="movies__message">Нет сохранённых фильмов</p>
           )}
           {!!savedMovies && (
-            <MoviesCardList movies={savedMovies} onToggleSave={null} onRemove={removeSavedMovie}/>
+            <MoviesCardList currentPage="saved-movies" movies={savedMovies} onToggleSave={null} onRemove={removeSavedMovie}/>
           )}
         </>
       )}

@@ -2,7 +2,7 @@ import '../../index.css';
 
 import './App.css';
 import React from "react";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "../Main/Main";
 import Movies from "../Movies/Movies";
 import NotFound from "../NotFound/NotFound";
@@ -10,7 +10,7 @@ import Profile from "../Profile/Profile";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
 import SavedMovies from "../SavedMovies/SavedMovies";
-import {CurrentUserContext} from "../../contexts/CurrentUserContext";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 import * as auth from "../../utils/auth";
 
@@ -42,19 +42,19 @@ function App() {
               <Route path="/" element={<Main loggedIn={isLoggedIn}/>}/>
               <Route path="/movies"
                      element={
-                       <ProtectedRoute redirectTo="/sign-up" loggedIn={isLoggedIn}>
+                       <ProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
                          <Movies loggedIn={isLoggedIn}/>
                        </ProtectedRoute>
                      }/>
               <Route path="/saved-movies"
                      element={
-                       <ProtectedRoute redirectTo="/sign-up" loggedIn={isLoggedIn}>
+                       <ProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
                          <SavedMovies loggedIn={isLoggedIn}/>
                        </ProtectedRoute>
                      }/>
               <Route path="/profile"
                      element={
-                       <ProtectedRoute redirectTo="/sign-up" loggedIn={isLoggedIn}>
+                       <ProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
                          <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} loggedIn={isLoggedIn}/>
                        </ProtectedRoute>
                      }/>
