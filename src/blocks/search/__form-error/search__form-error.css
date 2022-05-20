@@ -1,0 +1,9 @@
+.search__form-error {
+  font-size: 12px;
+  line-height: 15px;
+  min-height: 15px;
+  color: #FF4062;
+  max-width: 358px;
+  opacity: 1;
+  margin-top: 10px;
+}

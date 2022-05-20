@@ -2,10 +2,13 @@
 @import url(../../blocks/profile/__content/profile__content.css);
 @import url(../../blocks/profile/__title/profile__title.css);
 @import url(../../blocks/profile/__info/profile__form.css);
+@import url(../../blocks/profile/__message/profile__message.css);
 @import url(../../blocks/profile/__form-field/profile__form-field.css);
 @import url(../../blocks/profile/__form-label/profile__form-label.css);
 @import url(../../blocks/profile/__form-input/profile__form-input.css);
 @import url(../../blocks/profile/__form-footer/profile__form-footer.css);
 @import url(../../blocks/profile/__button/profile__button.css);
+@import url(../../blocks/profile/__button/__inactive/profile__button_inactive.css);
 @import url(../../blocks/profile/__button/_red/profile__button_red.css);
-@import url(../../blocks/profile/__message/profile__message.css);
+@import url(../../blocks/form/__input-error/form__input-error.css);
+@import url(../../blocks/form/__input-error/_active/form__inpur-error_active.css);

@@ -11,3 +11,7 @@
 @import url(../../blocks/form/__logo-container/form__logo-container.css);
 @import url(../../blocks/form/__span/form__span.css);
 @import url(../../blocks/form/__span-block/form__span-block.css);
+@import url(../../blocks/form/__footer/form__footer.css);
+@import url(../../blocks/form/__footer-error/form__footer-error.css);
+@import url(../../blocks/form/__footer-error/_active/form__footer-error_active.css);
+@import url(../../blocks/form/__submit-button/_inactive/form__submit-button_inactive.css);

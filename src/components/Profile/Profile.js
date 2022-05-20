@@ -2,19 +2,26 @@ import './Profile.css';
 import React from "react";
 import Header from "../Header/Header";
 import { mainApi } from "../../utils/MainApi";
+import { useFormValidation } from "../../validation/FormValidation";
 
 function Profile(props) {
   const { currentUser, setCurrentUser, loggedIn } = props;
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
+  const {values, handleChange, errors, isValid, resetForm} = useFormValidation();
+  const [profileError, setProfileError] = React.useState("");
   const [status, setStatus] = React.useState(null);
+  const buttonClassName = isValid ? "profile__button" : "profile__button profile__button_inactive"
 
-  function handleNameChange(e) {
-    setName(e.target.value)
+  function handleSubmit(e) {
+    e.preventDefault()
+    handleUpdateUser(values.name || currentUser.name, values.email || currentUser.email)
+    resetForm();
   }
 
-  function handleEmailChange(e) {
-    setEmail(e.target.value)
+  function handleChangeInput(e) {
+    handleChange(e);
+    if (profileError.length > 0) {
+      setProfileError("");
+    }
   }
 
   function resetStatus() {
@@ -24,8 +31,6 @@ function Profile(props) {
   function handleUpdateUser(name, email) {
     mainApi.patchUserInfo(name, email)
       .then((resultUserInfo) => {
-        setName(resultUserInfo.user.name);
-        setEmail(resultUserInfo.user.email);
         setCurrentUser({
             name: resultUserInfo.user.name,
             email: resultUserInfo.user.email,
@@ -41,12 +46,8 @@ function Profile(props) {
       });
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    handleUpdateUser(name || currentUser.name, email || currentUser.email);
-  }
-
   function handleLogout() {
+    resetForm();
     mainApi.signOut()
       .then(() => {
         window.location.href = '/';
@@ -54,6 +55,12 @@ function Profile(props) {
       .catch((err) => {
         console.log(err);
       });
+  }
+
+  function isError(error) {
+    const errorClass = !!error ? 'form__input-error form__input-error_active' : 'form__input-error';
+    console.log(errorClass)
+    return errorClass
   }
 
   return (
@@ -65,16 +72,18 @@ function Profile(props) {
           <form className="profile__form" onSubmit={handleSubmit}>
             <div className="profile__form-field">
               <label className="profile__form-label">Имя</label>
-              <input className="profile__form-input" placeholder={currentUser.name} value={name} onChange={handleNameChange}/>
+              <input className="profile__form-input" name="name" minLength="2" maxLength="30" placeholder={currentUser.name} value={values.name} onChange={handleChangeInput}/>
             </div>
+            <span className={isError(errors.name)}>{errors.name}</span>
             <div className="profile__form-field">
               <label className="profile__form-label">E-mail</label>
-              <input className="profile__form-input" placeholder={currentUser.email} value={email} onChange={handleEmailChange}/>
+              <input className="profile__form-input" type="email" name="email" placeholder={currentUser.email} value={values.email} onChange={handleChangeInput}/>
             </div>
+            <span className={isError(errors.email)}>{errors.email}</span>
             <div className="profile__form-footer">
-              {!status && <button className="profile__button" type={"submit"}>Редактировать</button>}
+              {!status && <button className={buttonClassName} type={"submit"}>Редактировать</button>}
               {status === 'success' && <span className="profile__message">Данные успешно изменены!</span>}
-              {status === 'error' && <span className="profile__message">Произошла ошибка, данные не обновлены</span>}
+              {status === 'error' && <span className="profile__message">Произошла ошибка, не смогли обновить ваши данные</span>}
               <button className="profile__button profile__button_red" onClick={handleLogout}>Выйти из аккаунта</button>
             </div>
           </form>

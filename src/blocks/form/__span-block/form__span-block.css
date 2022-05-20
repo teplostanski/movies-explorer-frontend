@@ -1,4 +1,11 @@
 .form__span-block {
   display: flex;
   justify-content: center;
+  margin-top: 16px;
+}
+
+@media screen and (max-width: 520px)  {
+  .form__span-block {
+    margin-top: 12px;
+  }
 }

@@ -1,0 +1,22 @@
+.form__footer-error {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  transform: translate(0, -100%);
+  font-size: 12px;
+  line-height: 15px;
+  min-height: 15px;
+  color: #FF0000;
+  max-width: 396px;
+  opacity: 0;
+  text-align: center;
+}
+
+@media screen and (max-width: 520px)  {
+  .form__footer-error {
+    max-width: 260px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
