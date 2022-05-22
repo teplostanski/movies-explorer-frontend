@@ -3,6 +3,7 @@ import React from "react";
 import Header from "../Header/Header";
 import { mainApi } from "../../utils/MainApi";
 import { useFormValidation } from "../../validation/FormValidation";
+import { clearCachedSearchState } from "../../utils/utils";
 
 function Profile(props) {
   const { currentUser, setCurrentUser, loggedIn } = props;
@@ -50,6 +51,7 @@ function Profile(props) {
     resetForm();
     mainApi.signOut()
       .then(() => {
+        clearCachedSearchState();
         window.location.href = '/';
       })
       .catch((err) => {
@@ -59,7 +61,6 @@ function Profile(props) {
 
   function isError(error) {
     const errorClass = !!error ? 'form__input-error form__input-error_active' : 'form__input-error';
-    console.log(errorClass)
     return errorClass
   }
 
@@ -84,7 +85,7 @@ function Profile(props) {
               {!status && <button className={buttonClassName} type={"submit"}>Редактировать</button>}
               {status === 'success' && <span className="profile__message">Данные успешно изменены!</span>}
               {status === 'error' && <span className="profile__message">Произошла ошибка, не смогли обновить ваши данные</span>}
-              <button className="profile__button profile__button_red" onClick={handleLogout}>Выйти из аккаунта</button>
+              <button type="button" className="profile__button profile__button_red" onClick={handleLogout}>Выйти из аккаунта</button>
             </div>
           </form>
         </div>

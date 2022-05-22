@@ -1,7 +1,5 @@
 .search__submit-button_inactive {
   opacity: 0.2;
-  background: #FFFFFF;
   color: #000000;
-  border: 1px solid #000000;
   pointer-events:none;
 }

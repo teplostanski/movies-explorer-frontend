@@ -6,7 +6,7 @@ import Header from "../Header/Header";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Footer from "../Footer/Footer";
 import { fetchMovies } from "../../utils/MoviesApi";
-import { filterMovies, mergeMovies, removeMovieById } from "../../utils/utils";
+import { filterMovies, mergeMovies, removeMovieById, getCachedSearchState, setCachedSearchState } from "../../utils/utils";
 import Preloader from "../Preloader/Preloader";
 import { mainApi } from "../../utils/MainApi";
 
@@ -14,10 +14,10 @@ import { mainApi } from "../../utils/MainApi";
 function Movies(props) {
   const {loggedIn} = props;
   const [isLoading, setIsLoading] = React.useState(false);
-  const [searchParams, setSearchParams] = React.useState({});
   const [movies, setMovies] = React.useState(null);
   const [savedMovies, setSavedMovies] = React.useState(null);
   const [isOpen, setIsOpen] = React.useState(false);
+  const [searchState, setSearchState] = React.useState(getCachedSearchState());
 
   function handleOpen() {
     setIsOpen(true)
@@ -27,63 +27,77 @@ function Movies(props) {
     setIsOpen(false)
   }
 
+  function updateSearchState(searchParams, moviesRes, savedMoviesRes) {
+    const filteredMovies = filterMovies(moviesRes, searchParams.searchQuery, searchParams.isShort);
+    const displayMovies = mergeMovies(filteredMovies, savedMoviesRes.movies);
+    const state = {...searchParams, displayMovies};
+    setCachedSearchState(state);
+    setSavedMovies(savedMoviesRes);
+    setMovies(moviesRes);
+    setSearchState(state);
+  }
+
   function onSearchSubmit(searchParams) {
-    if (!movies) {
-      setIsLoading(true);
-      fetchMovies()
-        .then(res => {
-          setIsLoading(false);
-          setMovies(res);
-        }).catch((err) => {
+    const fetchMoviesPromise = movies ? Promise.resolve(movies) : fetchMovies();
+    const fetchSavedMoviesPromise = savedMovies ? Promise.resolve(savedMovies) : mainApi.fetchSavedMovies();
+    setIsLoading(true);
+    Promise.all([fetchMoviesPromise, fetchSavedMoviesPromise])
+      .then(([moviesRes, savedMoviesRes]) => {
+        setIsLoading(false);
+        updateSearchState(searchParams, moviesRes, savedMoviesRes);
+      })
+      .catch(err => {
         console.error(err);
         setIsLoading(false);
-      });
-    }
-
-    if (!savedMovies) {
-      mainApi.fetchSavedMovies()
-        .then((res) => setSavedMovies(res.movies || []))
-        .catch((err) => {
-          console.error(err)
-        })
-    }
-
-    setSearchParams(searchParams);
+      })
   }
 
   function onToggleSave(movie) {
     if (movie.isSaved) {
-      const savedMovie = savedMovies.find(it => it.movieId === movie.id);
+      const savedMovie = savedMovies.movies?.find(it => it.movieId === movie.id);
       if (savedMovie) {
         mainApi.removeMovie(savedMovie._id)
-          .then(() => setSavedMovies(removeMovieById(savedMovies, 'movieId', movie.id)))
+          .then(() => {
+            const updatedSavedMovies = removeMovieById(savedMovies.movies, 'movieId', movie.id);
+            updateSearchState({
+              searchQuery: searchState.searchQuery,
+              isShort: searchState.isShort,
+            }, movies, { movies: updatedSavedMovies });
+          })
           .catch(err => console.error(err));
       } else {
         console.error('Ничего не найдено :(');
       }
     } else {
       mainApi.saveMovie(movie)
-        .then((res) => setSavedMovies([...savedMovies, res.movie]))
+        .then((res) => {
+          const updatedSavedMovies = [...(savedMovies.movies || []), res.movie];
+          updateSearchState({
+            searchQuery: searchState.searchQuery,
+            isShort: searchState.isShort,
+          }, movies, { movies: updatedSavedMovies });
+        })
         .catch(err => console.error(err));
     }
   }
 
-  const filteredMovies = filterMovies(movies, searchParams.searchQuery, searchParams.isShort);
-  const displayMovies = mergeMovies(filteredMovies, savedMovies);
-
   return (
     <>
       <Header currentPage="movies" isLoggedIn={loggedIn} onMenuClick={handleOpen}/>
-      <SearchForm onSubmit={onSearchSubmit}/>
+      <SearchForm
+        defaultSearchQuery={searchState.searchQuery}
+        defaultIsShort={searchState.isShort}
+        onSubmit={onSearchSubmit}
+      />
       {isLoading ? (
         <Preloader/>
       ) : (
         <>
-          {!!searchParams.searchQuery && (!displayMovies || !displayMovies.length) && (
+          {!!searchState.searchQuery && (!searchState.displayMovies || !searchState.displayMovies.length) && (
             <p className="movies__message">По вашему запросу ничего не найдено</p>
           )}
-          {!!searchParams.searchQuery && (!!displayMovies && !!displayMovies.length) && (
-            <MoviesCardList currentPage="movies" movies={displayMovies} onToggleSave={onToggleSave}/>
+          {!!searchState.searchQuery && (!!searchState.displayMovies && !!searchState.displayMovies.length) && (
+            <MoviesCardList currentPage="movies" movies={searchState.displayMovies} onToggleSave={onToggleSave}/>
           )}
         </>
       )}

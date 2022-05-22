@@ -9,3 +9,9 @@
     margin-top: 37px;
   }
 }
+
+@media screen and (max-width: 890px)  {
+  .checkbox {
+    margin-top: 35px;
+  }
+}
