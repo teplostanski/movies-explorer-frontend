@@ -1,6 +1,6 @@
 import './Header.css';
 
-import logoPath from '../../images/header/logo.png';
+import logoPath from '../../images/header/logo.svg';
 import menuLogoPath from '../../images/header/menu.svg';
 
 import React from "react";

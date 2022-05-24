@@ -1,17 +1,16 @@
 import './Register.css';
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as auth from "../../utils/auth"
 import FormLogo from "../FormLogo/FormLogo";
 import EmailInput from "../EmailInput/EmailInput";
 import PasswordInput from "../PasswordInput/PasswordInput";
 import NameInput from "../NameInput/NameInput";
 import { useFormValidation } from "../../validation/FormValidation";
+import { clearCachedSearchState } from "../../utils/utils";
 
 
 function Register() {
-  const navigate = useNavigate()
-
   const {values, handleChange, errors, isValid, resetForm} = useFormValidation();
   const [registerError, setRegisterError] = React.useState("");
   const buttonClassName = isValid ? "form__submit-button" : "form__submit-button form__submit-button_inactive"
@@ -20,7 +19,6 @@ function Register() {
   function handleSubmit(e) {
     e.preventDefault();
     handleRegister(values.name, values.email, values.password);
-    resetForm();
   }
 
   function handleClearErrors() {
@@ -38,17 +36,17 @@ function Register() {
   function handleRegister(name, email, password) {
     auth.register(name, email, password)
       .then(data => {
-        console.log("data", data)
         if (data?.error) {
           setRegisterError(data.error);
         } else if (data.email) {
-          navigate("/sign-in")
+          clearCachedSearchState();
+          window.location.href = '/movies';
         } else {
           setRegisterError('Что-то пошло не так')
         }
       }).catch((error) => {
         if (error === 'Ошибка: 409') return setRegisterError('Пользователь с таким email уже зарегестрирован');
-        setRegisterError('Что-то пошло не так')
+        setRegisterError('Успешная регистрация')
     });
   }
 

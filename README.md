@@ -10,4 +10,6 @@ React-Приложение Дипломная работа
 
 figma: https://www.figma.com/file/4QnahHGxFIkvaBUYTUpwWo/Diploma-Copy
 
-site:
+site: https://diplom.nomoredomains.xyz/
+
+тестовый аккаунт: test@yandex.ru 12345678

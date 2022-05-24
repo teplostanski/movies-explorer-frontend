@@ -21,7 +21,8 @@ export const register = (name, email, password) => {
       email: email,
       password: password,
       name: name
-    })
+    }),
+    credentials: 'include',
   }).then(res => {
     if (!res.ok) {
       return Promise.reject(`Ошибка: ${res.status}`);

@@ -62,15 +62,15 @@ class Api {
       ...this._queryParams,
       method: 'POST',
       body: JSON.stringify({
-        country: movie.country,
-        director: movie.director,
+        country: movie.country || '',
+        director: movie.director || '',
         duration: movie.duration,
         year: movie.year,
         description: movie.description,
         image: getMovieImageUrl(movie.image.url),
         trailerLink: movie.trailerLink,
         nameRU: movie.nameRU,
-        nameEN: movie.nameEN,
+        nameEN: movie.nameEN || '',
         thumbnail: movie.trailerLink,
         movieId: movie.id,
       })

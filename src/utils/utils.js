@@ -7,7 +7,7 @@ export function mergeMovies(movies, savedMovies) {
     if (savedMovies) {
       return movies.map(it => {
         const isSaved = savedMovies.find(savedMovie => savedMovie.movieId === it.id);
-        return { ...it, isSaved: isSaved };
+        return { ...it, isSaved: !!isSaved };
       });
     }
     return movies;
@@ -53,7 +53,7 @@ export function timeMovie(time) {
 }
 
 export function removeMovieById(movies, key, id) {
-  const index = movies?.findIndex(it => it[key] === id) || -1;
+  const index = movies?.findIndex(it => it[key] === id) ?? -1;
   if (index === -1) {
     return movies;
   } else {
