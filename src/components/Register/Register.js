@@ -17,7 +17,7 @@ function Register() {
   const errorClass = !!registerError ? 'form__footer-error form__footer-error_active' : 'form__footer-error';
 
   function handleSubmit(e) {
-    e.preventDefault();
+    //e.preventDefault();
     handleRegister(values.name, values.email, values.password);
   }
 
@@ -40,13 +40,13 @@ function Register() {
           setRegisterError(data.error);
         } else if (data.email) {
           clearCachedSearchState();
-          window.location.href = '/movies';
+          //window.location.href = '/movies';
         } else {
           setRegisterError('Что-то пошло не так')
         }
       }).catch((error) => {
-        if (error === 'Ошибка: 409') return setRegisterError('Пользователь с таким email уже зарегестрирован');
-        setRegisterError('Успешная регистрация')
+      if (error === 'Ошибка: 409') return setRegisterError('Пользователь с таким email уже зарегестрирован');
+      setRegisterError('Успешная регистрация')
     });
   }
 
@@ -59,8 +59,7 @@ function Register() {
           <div className="form__field-group">
             <NameInput label={"Имя"} error={errors.name} value={values.name} onChange={handleChangeInput}/>
             <EmailInput label={"E-mail"} error={errors.email} value={values.email} onChange={handleChangeInput}/>
-            <PasswordInput label={"Пароль"} error={errors.password} value={values.password}
-                           onChange={handleChangeInput}/>
+            <PasswordInput label={"Пароль"} error={errors.password} value={values.password} onChange={handleChangeInput}/>
           </div>
           <div className="form__footer">
             <button className={buttonClassName} type="submit">Зарегистрироваться</button>

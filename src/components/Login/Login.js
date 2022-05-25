@@ -14,7 +14,7 @@ function Login() {
   const buttonClassName = isValid ? "form__submit-button" : "form__submit-button form__submit-button_inactive"
   const errorClass = !!loginError ? 'form__footer-error form__footer-error_active' : 'form__footer-error';
   function handleSubmit(e) {
-    e.preventDefault();
+    //e.preventDefault();
     handleLogin(values.email, values.password);
     resetForm();
   }
@@ -38,7 +38,7 @@ function Login() {
           setLoginError(data.error);
         } else {
           clearCachedSearchState();
-          window.location.href = '/movies';
+          //window.location.href = '/movies';
         }
       })
       .catch((err) => {

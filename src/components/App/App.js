@@ -65,12 +65,12 @@ function App() {
                        }/>
                 <Route path="/sign-up"
                        element={
-                         <Authorized redirectTo="/" loggedIn={isLoggedIn}>
+                         <Authorized redirectTo="/movies" loggedIn={isLoggedIn}>
                            <Register/>
                          </Authorized>}/>
                 <Route path="/sign-in"
                        element={
-                         <Authorized redirectTo="/" loggedIn={isLoggedIn}>
+                         <Authorized redirectTo="/movies" loggedIn={isLoggedIn}>
                            <Login/>
                          </Authorized>}/>
                 <Route path="*" element={<NotFound/>}/>

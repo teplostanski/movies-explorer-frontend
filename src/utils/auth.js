@@ -17,11 +17,7 @@ export const register = (name, email, password) => {
   return fetch(`${API_URL}/signup`, {
     method: 'POST',
     headers: noAuthHeaders,
-    body: JSON.stringify({
-      email: email,
-      password: password,
-      name: name
-    }),
+    body: JSON.stringify({email, password, name}),
     credentials: 'include',
   }).then(res => {
     if (!res.ok) {
