@@ -8,4 +8,5 @@
   opacity: 0;
   transition: visibility 0.4s, opacity 0.4s ease-out;
   pointer-events: none;
+  z-index: 1;
 }

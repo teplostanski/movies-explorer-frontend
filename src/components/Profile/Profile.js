@@ -2,11 +2,11 @@ import './Profile.css';
 import React from "react";
 import Header from "../Header/Header";
 import { mainApi } from "../../utils/MainApi";
-import { isSameProfileData, useFormValidation } from "../../validation/FormValidation";
+import { useFormValidation } from "../../validation/FormValidation";
 import { clearCachedSearchState } from "../../utils/utils";
 
 function Profile(props) {
-  const { currentUser, setCurrentUser, loggedIn } = props;
+  const { currentUser, loggedIn } = props;
   const {values, handleChange, errors, isValid, resetForm} = useFormValidation({
     name: currentUser.name,
     email: currentUser.email,
@@ -16,12 +16,8 @@ function Profile(props) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    if (isSameProfileData(currentUser, values)) {
-      setProfileError('Данные не изменились');
-    } else {
-      handleUpdateUser(values.name, values.email)
-      resetForm();
-    }
+    setProfileError('Данные не изменились');
+    resetForm();
   }
 
   function handleChangeInput(e) {
@@ -31,27 +27,27 @@ function Profile(props) {
     }
   }
 
-  function resetStatus() {
-    setTimeout(() => setStatus(null), 2000);
-  }
+  //function resetStatus() {
+  //  setTimeout(() => setStatus(null), 2000);
+  //}
 
-  function handleUpdateUser(name, email) {
-    mainApi.patchUserInfo(name, email)
-      .then((resultUserInfo) => {
-        setCurrentUser({
-            name: resultUserInfo.user.name,
-            email: resultUserInfo.user.email,
-            _id: resultUserInfo.user._id
-        })
-        setStatus('success');
-        resetStatus();
-      })
-      .catch((err) => {
-        setStatus('error');
-        resetStatus();
-        console.log(err);
-      });
-  }
+  //function handleUpdateUser(name, email) {
+  //  mainApi.patchUserInfo(name, email)
+  //    .then((resultUserInfo) => {
+  //      setCurrentUser({
+  //          name: resultUserInfo.user.name,
+  //          email: resultUserInfo.user.email,
+  //          _id: resultUserInfo.user._id
+  //      })
+  //      setStatus('success');
+  //      resetStatus();
+  //    })
+  //    .catch((err) => {
+  //      setStatus('error');
+  //      resetStatus();
+  //      console.log(err);
+  //    });
+  //}
 
   function handleLogout() {
     resetForm();
@@ -69,7 +65,7 @@ function Profile(props) {
     return !!error ? 'form__input-error form__input-error_active' : 'form__input-error'
   }
 
-  const isSameData = isSameProfileData(currentUser, values);
+  //const isSameData = isSameProfileData(currentUser, values);
 
   return (
     <>
@@ -89,7 +85,7 @@ function Profile(props) {
             </div>
             <span className={isError(errors.email)}>{errors.email}</span>
             <div className="profile__form-footer">
-              {!status && <button className="profile__button" type="submit" disabled={isSameData || !isValid}>Редактировать</button>}
+              {!status && <button className="profile__button" type="submit" disabled={!isValid}>Редактировать</button>}
               {status === 'success' && <span className="profile__message">Данные успешно изменены!</span>}
               {status === 'error' && <span className="profile__message">Произошла ошибка, не смогли обновить ваши данные</span>}
               <button type="button" className="profile__button profile__button_red" onClick={handleLogout}>Выйти из аккаунта</button>

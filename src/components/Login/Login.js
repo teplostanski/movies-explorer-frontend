@@ -4,18 +4,17 @@ import { Link } from "react-router-dom";
 import FormLogo from "../FormLogo/FormLogo";
 import EmailInput from "../EmailInput/EmailInput";
 import PasswordInput from "../PasswordInput/PasswordInput";
-import * as auth from "../../utils/auth";
 import { useFormValidation } from "../../validation/FormValidation";
-import { clearCachedSearchState } from "../../utils/utils";
 
-function Login() {
+const Login = ({ onLoginSubmit }) => {
   const { values, handleChange, errors, isValid, resetForm } = useFormValidation();
   const [loginError, setLoginError] = React.useState("");
   const buttonClassName = isValid ? "form__submit-button" : "form__submit-button form__submit-button_inactive"
   const errorClass = !!loginError ? 'form__footer-error form__footer-error_active' : 'form__footer-error';
+
   function handleSubmit(e) {
-    //e.preventDefault();
-    handleLogin(values.email, values.password);
+    e.preventDefault();
+    onLoginSubmit(values);
     resetForm();
   }
 
@@ -30,22 +29,6 @@ function Login() {
     }
   }
 
-  function handleLogin(email, password) {
-    auth.authorize(email, password)
-      .then((data) => {
-        console.log(data)
-        if (data?.error) {
-          setLoginError(data.error);
-        } else {
-          clearCachedSearchState();
-          //window.location.href = '/movies';
-        }
-      })
-      .catch((err) => {
-        console.log(err)
-        setLoginError('Что-то пошло не так');
-      });
-  }
   return (
     <>
       <div className="form__container">

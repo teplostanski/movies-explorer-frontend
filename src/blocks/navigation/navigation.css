@@ -1,15 +1,22 @@
 .navigation {
-  width: 520px;
+  width: 70%;
   height: 100vh;
+  position: absolute;
   top: 0;
   right: 0;
-  position: fixed;
+  background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
-  background-color: #FFFFFF;
   justify-content: space-between;
-  padding: 159px 0 90px 0;
-  box-sizing: border-box;
+  align-items: center;
+}
+
+.navigation>div {
+  margin-top: 159px;
+  min-height: 122px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 520px)  {

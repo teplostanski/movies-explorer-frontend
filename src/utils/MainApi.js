@@ -17,6 +17,10 @@ class Api {
     return res.json();
   }
 
+  getToken = () => {
+    return `Bearer ${localStorage.getItem('token')}`;
+  }
+
   getUserInfo() {
     return fetch(`${this._params.baseRoute}/users/me`, this._queryParams)
       .then(res => {
@@ -90,6 +94,17 @@ class Api {
       .then(res => {
         return this._getResponseData(res)
       });
+  }
+
+  checkToken() {
+    return fetch(`${this._params.baseRoute}/users/me`, {
+      method: 'GET',
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": this.getToken()
+      }
+    })
+      .then(this._getResponseData)
   }
 }
 
