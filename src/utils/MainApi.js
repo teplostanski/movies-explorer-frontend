@@ -1,13 +1,6 @@
-import { AUTH_PARAMS } from "./auth";
-import { getMovieImageUrl } from "./utils";
-
 class Api {
-  constructor(params) {
-    this._params = params;
-    this._queryParams = {
-      credentials: 'include',
-      headers: this._params.headers,
-    };
+  constructor({ baseRoute }) {
+    this.baseRoute = baseRoute;
   }
 
   _getResponseData(res) {
@@ -22,82 +15,77 @@ class Api {
   }
 
   getUserInfo() {
-    return fetch(`${this._params.baseRoute}/users/me`, this._queryParams)
-      .then(res => {
-        return this._getResponseData(res)
-      });
+    return fetch(`${this.baseRoute}/users/me`, {
+      headers: {
+        authorization: this.getToken()
+      }
+    })
+      .then(this._getResponseData);
   }
 
-  patchUserInfo(name, email) {
-    const queryParams = {
-      ...this._queryParams,
+  patchUserInfo(data) {
+    return fetch(`${this.baseRoute}/users/me`, {
       method: 'PATCH',
+      headers: {
+          authorization: this.getToken(),
+          'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
-        name: name,
-        email: email
+        name: data.name,
+        email: data.email
       })
-    }
-    return fetch(`${this._params.baseRoute}/users/me`, queryParams)
-      .then(res => {
-        return this._getResponseData(res)
-      });
-  }
-
-  signOut() {
-    const queryParams = {
-      ...this._queryParams,
-      method: 'POST',
-    }
-    return fetch(`${this._params.baseRoute}/signout`, queryParams)
-      .then(res => {
-        return this._getResponseData(res)
-      });
+    })
+      .then(this._getResponseData)
   }
 
   fetchSavedMovies() {
-    return fetch(`${this._params.baseRoute}/movies`, this._queryParams)
-      .then(res => {
-        return this._getResponseData(res)
-      });
+    return fetch(`${this.baseRoute}/movies`, {
+      headers: {
+        authorization: this.getToken()
+      }
+    })
+      .then(this._getResponseData);
   }
 
   saveMovie(movie) {
-    const queryParams = {
-      ...this._queryParams,
+    return fetch(`${this.baseRoute}/movies`, {
       method: 'POST',
+      headers: {
+        authorization: this.getToken(),
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify({
         country: movie.country || '',
         director: movie.director || '',
-        duration: movie.duration,
-        year: movie.year,
-        description: movie.description,
-        image: getMovieImageUrl(movie.image.url),
-        trailerLink: movie.trailerLink,
-        nameRU: movie.nameRU,
-        nameEN: movie.nameEN || '',
-        thumbnail: movie.trailerLink,
+        duration: movie.duration || '',
+        year: movie.year || '',
+        description: movie.description || '',
+        image: `https://api.nomoreparties.co${movie.image.url}` || '',
+        trailerLink: movie.trailerLink || '',
+        thumbnail: `https://api.nomoreparties.co${movie.image.formats.thumbnail.url}` || '',
         movieId: movie.id,
+        nameRU: movie.nameRU || '',
+        nameEN: movie.nameEN || '',
       })
-    }
-    return fetch(`${this._params.baseRoute}/movies`, queryParams)
-      .then(res => {
-        return this._getResponseData(res)
-      });
-  }
+    })
+      .then(this._getResponseData);
+}
 
   removeMovie(id) {
-    const queryParams = {
-      ...this._queryParams,
+    return fetch(`${this.baseRoute}/movies/${id._id}`, {
       method: 'DELETE',
-    }
-    return fetch(`${this._params.baseRoute}/movies/${id}`, queryParams)
+      headers: {
+        authorization: this.getToken(),
+        'Content-Type': 'application/json'
+      }
+    })
       .then(res => {
         return this._getResponseData(res)
       });
   }
 
   checkToken() {
-    return fetch(`${this._params.baseRoute}/users/me`, {
+    return fetch(`${this.baseRoute}/users/me`, {
       method: 'GET',
       headers: {
         "Content-Type": "application/json",
@@ -108,4 +96,6 @@ class Api {
   }
 }
 
-export const mainApi = new Api( AUTH_PARAMS );
+export const mainApi = new Api({
+  baseRoute: 'http://localhost:3000',
+});

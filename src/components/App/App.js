@@ -51,7 +51,6 @@ function App() {
       })
   }
 
-
   const handleLogin = ({ password, email }) => {
     auth.authorize({ password, email })
       .then((res) => {
@@ -64,6 +63,24 @@ function App() {
         console.log(error)
         setLoginError('Что-то пошло не так');
       });
+  }
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem('token');
+    localStorage.clear();
+    setCurrentUser({});
+  }
+
+  const handleUpdateUser = ({ name, email }) => {
+    mainApi.patchUserInfo({ name, email })
+      .then((res) => {
+        setCurrentUser(res);
+
+      })
+      .catch((error) => {
+        console.log(error);
+      })
   }
 
   return (
@@ -86,12 +103,20 @@ function App() {
                            <SavedMovies loggedIn={isLoggedIn}/>
                          </Unauthorized>
                        }/>
-                <Route path="/profile"
-                       element={
-                         <Unauthorized redirectTo="/" loggedIn={isLoggedIn}>
-                           <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} loggedIn={isLoggedIn}/>
-                         </Unauthorized>
-                       }/>
+
+                <Route
+                  path="/profile"
+                  element={
+                    <Unauthorized redirectTo="/" loggedIn={isLoggedIn}>
+                      <Profile
+                        onLogout={handleLogout}
+                        onUpdateUser={handleUpdateUser}
+                        loggedIn={isLoggedIn}
+                      />
+                    </Unauthorized>
+                  }
+                />
+
                 <Route
                   path="/sign-up"
                   element={
