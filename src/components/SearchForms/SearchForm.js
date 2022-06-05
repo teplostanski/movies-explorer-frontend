@@ -1,56 +1,49 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
-import './SearchForm.css';
+import "./SearchForm.css";
 
+const SearchForm = ({ isCheckboxChecked, onChange, onSubmit }) => {
+  const location = useLocation();
+  const [searchQuery, setSearchMessage] = React.useState(location.pathname === "/movies" ? localStorage.getItem("searchQuery") || '' : '');
 
-function SearchForm(props) {
-  const { defaultSearchQuery, defaultIsShort, onSubmit, allowSubmitWithoutQuery } = props;
-  const [isShort, setIsShort] = React.useState(defaultIsShort || false);
-  const [searchQuery, setSearchQuery] = React.useState(defaultSearchQuery || "");
-  const [isValid, setIsValid] = React.useState(false);
-  const buttonClassName = isValid ? "search__submit-button" : "search__submit-button search__submit-button_inactive"
+  const buttonClassName = searchQuery !== '' ? "search__submit-button" : "search__submit-button search__submit-button_inactive"
 
-  function onSearchQueryChange(e) {
-    setSearchQuery(e.currentTarget.value);
-    setIsValid(e.target.checkValidity())
+  const handleChange = (e) => {
+    setSearchMessage(e.target.value);
   }
 
-  function handleSubmit(e) {
+  const handleToggleIsShort = () => {
+    onChange();
+  }
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ searchQuery, isShort });
-  }
-
-  function handleToggleIsShort(value) {
-    if (searchQuery || allowSubmitWithoutQuery) {
-      onSubmit({ searchQuery, isShort: value });
-    }
-    setIsShort(value);
+    onSubmit(searchQuery);
+    location.pathname === "/movies" && localStorage.setItem("searchQuery", searchQuery);
   }
 
   return (
     <div className="search">
-      <form className="search__form" noValidate onSubmit={handleSubmit}>
-      <div className="search__form-container">
-        <div className="search__form-field">
+      <form className="search__form" onSubmit={handleSubmit}>
+        <div className="search__form-container">
+          <div className="search__form-field">
             <input
               id="search__form-input"
-              value={searchQuery}
+              value={searchQuery || ''}
               required
               className="search__form-input"
               name="search-input"
               placeholder="Фильм"
-              onChange={onSearchQueryChange}
-            />
-
+              onChange={handleChange}>
+            </input>
           </div>
-          <button className={buttonClassName} type="submit"></button>
-      </div>
-
-
-        <FilterCheckbox defaultValue={defaultIsShort} onChange={handleToggleIsShort}/>
+          <button className={buttonClassName} disabled={searchQuery === ''} type="submit"></button>
+        </div>
+          <FilterCheckbox isChecked={isCheckboxChecked} onChange={handleToggleIsShort} />
       </form>
     </div>
-  );
+  )
 }
 
 export default SearchForm;

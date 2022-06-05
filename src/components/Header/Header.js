@@ -1,53 +1,53 @@
-import './Header.css';
+import "./Header.css";
 
-import logoPath from '../../images/header/logo.svg';
-import menuLogoPath from '../../images/header/menu.svg';
+import logoPath from "../../images/header/logo.svg";
+import menuLogoPath from "../../images/header/menu.svg";
 
 import React from "react";
-import {Link} from "react-router-dom";
-import ProfileButton from "../ProfileButton/ProfileButton";
+import { Link, useLocation } from "react-router-dom";
 
-function Header(props) {
-  const {currentPage, onMenuClick} = props;
+import Navigation from '../Navigation/Navigation';
+import NavigationOverlay from '../NavigationOverlay/NavigationOverlay';
+import menuCloseButtonPath from '../../images/header/close.svg';
+
+function Header({ loggedIn }) {
+  const location = useLocation();
+  const [isChecked, setIsChecked] = React.useState(false);
+
+  const closeMenu = () => {
+    setIsChecked(false);
+  }
+
+  const handleChange = () => {
+    setIsChecked(!isChecked);
+  };
+
   return (
-    <header className="header">
+    <header className={`header ${location.pathname === '/'}`}>
       <Link to="/" className="header__logo-link">
         <img className="header__logo" src={logoPath} alt="Лого"/>
       </Link>
-      {props.isLoggedIn
-        ?
+      <Navigation loggedIn={loggedIn} />
+      {loggedIn &&
         <>
-          <div className="header__links">
+          <label className="header__menu-button">
+            <img className="header__menu-logo" src={!isChecked ? menuLogoPath : menuCloseButtonPath } alt="Кнопка меню"></img>
+            <input
+              type='checkbox'
+              checked={isChecked}
+              onChange={handleChange}
+              className='header__menu-checkbox'>
+            </input>
+          </label>
 
-            <div className="header__link-container">
-              <Link to="/movies"
-                    className={currentPage === 'movies' ? "header__link header__link_active" : "header__link"}>
-                Фильмы
-              </Link>
-              <Link to="/saved-movies"
-                    className={currentPage === 'saved-movies' ? "header__link header__link_active" : "header__link"}>
-                Сохраненные фильмы
-              </Link>
-            </div>
-            <ProfileButton/>
-          </div>
-          <button className="header__menu-button" onClick={onMenuClick}>
-            <img className="header__menu-logo" src={menuLogoPath} alt="Кнопка меню"/>
-          </button>
+          <NavigationOverlay
+            isChecked={isChecked}
+            onCloseMenu={closeMenu}
+          />
         </>
-        :
-
-        <div className="header__creds-container">
-          <div className="header__creds">
-            <Link to="/sign-up" className="header__link"> Регистрация </Link>
-            <Link to="/sign-in">
-              <button className="header__auth-button"> Войти</button>
-            </Link>
-          </div>
-        </div>
       }
     </header>
-  );
+  )
 }
 
-export default Header
+export default Header;

@@ -1,13 +1,6 @@
 //const baseRoute = 'https://api.diplom.nomoredomains.xyz';
 const baseRoute = 'http://localhost:3000';
 
-export const AUTH_PARAMS = {
-  baseRoute: baseRoute,
-  headers: {
-    'Content-Type': 'application/json'
-  }
-}
-
 function getResponseData(res) {
   if (!res.ok) {
     return Promise.reject(`Ошибка: ${res.status}`);

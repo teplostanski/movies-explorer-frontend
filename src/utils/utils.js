@@ -12,34 +12,15 @@ export function mergeMovies(movies, savedMovies) {
     }
     return movies;
   }
-  return null
+  return movies
 }
-
-export function filterMovies(movies, keyword, isShort) {
-  if (movies) {
-    const result = [];
-    movies.forEach(it => {
-      const isPassKeywordFilter = isPassingKeywordFilter(it, keyword);
-      const isPassingDurationFilter = !isShort || it.duration <= 40;
-      if (isPassKeywordFilter && isPassingDurationFilter) {
-        result.push(it);
-      }
-    });
-    return result;
-  }
-  return null;
-}
-
-function isPassingKeywordFilter(movie, keyword) {
-  const keys = Object.keys(movie);
-  for (let i = 0, count = keys.length; i < count; i++) {
-    const key = keys[i];
-    const value = movie[key];
-    if (typeof value === 'string' && value.toLowerCase().includes(keyword.toLowerCase())) {
-      return true;
-    }
-  }
-  return false;
+export const filterMovies = (arr, str) => {
+  const filteredMovies = arr.filter((item) => {
+    const nameRuToLowerCase = item.nameRU.toLowerCase();
+    const searchMessageToLowerCase = str.toLowerCase();
+    return nameRuToLowerCase.includes(searchMessageToLowerCase);
+  })
+  return filteredMovies;
 }
 
 export function getMovieImageUrl(path) {
@@ -78,28 +59,28 @@ export function getMoreCardsCount() {
   return 3;
 }
 
-export function getCachedSearchState() {
-  try {
-    const serializedState = localStorage.getItem('searchState');
-    return serializedState ? JSON.parse(serializedState) : {};
-  } catch (e) {
-    console.error(e);
-    return null;
-  }
-}
+//export function getCachedSearchState() {
+//  try {
+//    const serializedState = localStorage.getItem('searchState');
+//    return serializedState ? JSON.parse(serializedState) : {};
+//  } catch (e) {
+//    console.error(e);
+//    return null;
+//  }
+//}
 
-export function setCachedSearchState(state) {
-  try {
-    localStorage.setItem('searchState', JSON.stringify(state));
-  } catch (err) {
-    console.error(err);
-  }
-}
+//export function setCachedSearchState(state) {
+//  try {
+//    localStorage.setItem('searchState', JSON.stringify(state));
+//  } catch (err) {
+//    console.error(err);
+//  }
+//}
 
-export function clearCachedSearchState() {
-  try {
-    localStorage.removeItem('searchState');
-  } catch (err) {
-    console.error(err);
-  }
-}
+//export function clearCachedSearchState() {
+//  try {
+//    localStorage.removeItem('searchState');
+//  } catch (err) {
+//    console.error(err);
+//  }
+//}

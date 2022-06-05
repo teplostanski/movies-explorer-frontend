@@ -2,8 +2,8 @@ import '../../index.css';
 
 import './App.css';
 import React from "react";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
-//import Main from "../Main/Main";
+import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
+import Main from "../Main/Main";
 import Movies from "../Movies/Movies";
 import NotFound from "../NotFound/NotFound";
 import Profile from "../Profile/Profile";
@@ -11,15 +11,15 @@ import Register from "../Register/Register";
 import Login from "../Login/Login";
 import SavedMovies from "../SavedMovies/SavedMovies";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { mainApi } from '../../utils/MainApi';
-import fetchMovies from '../../utils/MoviesApi'
 import Unauthorized from "../Unauthorized/Unauthorized";
 import * as auth from "../../utils/auth";
-import { clearCachedSearchState } from "../../utils/utils";import { AppContext, reducerWithLocalStorage } from "../../contexts/AppContext";
-import { getCachedSearchState } from "../../utils/utils";
+import { mainApi } from '../../utils/MainApi';
+import fetchMovies from '../../utils/MoviesApi'
+import Preloader from '../Preloader/Preloader';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 function App() {
-  const [state, dispatch] = React.useReducer(reducerWithLocalStorage, getCachedSearchState());
   const [isInitialized, setIsInitialized] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
@@ -31,8 +31,11 @@ function App() {
   const [initialCardsCount, setInitialCardsCount] = React.useState(0);
   const [moreCardsCount, setMoreCardsCount] = React.useState(0);
   const [screenWidth, setScreenWidth] = React.useState(window.innerWidth);
+  const pathToHeader = ['/', '/movies', '/saved-movies', '/profile'];
+  const pathToFooter = ['/', '/movies', '/saved-movies'];
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   React.useEffect(() => {
     if (localStorage.getItem('token')) {
@@ -48,6 +51,23 @@ function App() {
       setIsInitialized(true);
     }
   }, [])
+
+  React.useEffect(() => {
+    if (!isLoggedIn) {
+      return;
+    }
+    Promise.all([mainApi.getUserInfo(), mainApi.fetchSavedMovies()])
+      .then(([user, movies]) => {
+        setCurrentUser(user);
+        setSavedMovies(movies.filter((item) => item.owner === user._id));
+        setSavedMoviesItems(movies.filter((item) => item.owner === user._id).map(item => item.movieId));
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }, [isLoggedIn])
+
+    // поиск фильмов
 
   const getMovies = (filterCallback) => {
     setisLoading(true);
@@ -134,7 +154,6 @@ function App() {
     handleDeleteMoviesFromSaved(movieToDelete);
   }
 
-
   const handleRegister = ({ name, password, email }) => {
     auth.register({ name, password, email })
       .then(() => {
@@ -145,12 +164,13 @@ function App() {
       })
   }
 
+
   const handleLogin = ({ password, email }) => {
     auth.authorize({ password, email })
       .then((res) => {
           localStorage.setItem('token', res.token);
           setIsLoggedIn(true);
-          clearCachedSearchState();
+          //clearCachedSearchState();
           navigate('/movies');
       })
       .catch((error) => {
@@ -178,12 +198,16 @@ function App() {
   }
 
   return (
-    <AppContext.Provider value={{state, dispatch}}>
-      <CurrentUserContext.Provider value={currentUser}>
-        {isInitialized && (
-          <div className="page">
-            <BrowserRouter>
-              <Routes>
+    <CurrentUserContext.Provider value={currentUser}>
+      <div className="page">
+        {isInitialized ?
+          <>
+            {pathToHeader.includes(location.pathname) ?
+              <Header
+                loggedIn={isLoggedIn} />
+              : null}
+            <Routes>
+              <Route path="/" element={<Main loggedIn={isLoggedIn}/>}/>
               <Route
                 path="/movies"
                 element={
@@ -217,39 +241,45 @@ function App() {
                 }
               />
 
-                <Route
-                  path="/profile"
-                  element={
-                    <Unauthorized redirectTo="/" loggedIn={isLoggedIn}>
-                      <Profile
-                        onLogout={handleLogout}
-                        onUpdateUser={handleUpdateUser}
-                        loggedIn={isLoggedIn}
-                      />
-                    </Unauthorized>
-                  }
-                />
+              <Route
+                path="/profile"
+                element={
+                  <Unauthorized redirectTo="/" loggedIn={isLoggedIn}>
+                    <Profile
+                      onLogout={handleLogout}
+                      onUpdateUser={handleUpdateUser}
+                      loggedIn={isLoggedIn}
+                    />
+                  </Unauthorized>
+                }
+              />
 
-                <Route
-                  path="/sign-up"
-                  element={
-                    <Register onRegisterSubmit={handleRegister}/>
-                  }
-                />
+              <Route
+                path="/sign-up"
+                element={
+                  <Register onRegisterSubmit={handleRegister}/>
+                }
+              />
 
-                <Route
-                  path='/sign-in'
-                  element={
-                    <Login onLoginSubmit={handleLogin}/>
-                  }
-                />
-                <Route path="*" element={<NotFound/>}/>
-              </Routes>
-            </BrowserRouter>
-          </div>
-        )}
-      </CurrentUserContext.Provider>
-    </AppContext.Provider>
+              <Route
+                path='/sign-in'
+                element={
+                  <Login onLoginSubmit={handleLogin}/>
+                }
+              />
+
+              <Route path="*" element={<NotFound/>}/>
+
+            </Routes>
+            {pathToFooter.includes(location.pathname) ?
+              <Footer />
+            : null}
+          </>
+          :
+          <Preloader />
+        }
+      </div>
+    </CurrentUserContext.Provider>
   );
 }
 
