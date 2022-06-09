@@ -7,13 +7,19 @@
   margin: 20px 40px 0 40px;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   align-self: center;
 }
 
-@media screen and (max-width: 1200px)  {
+/*@media screen and (max-width: 1200px)  {
   .promo {
     max-width: 960px;
+  }
+}*/
+
+@media screen and (max-width: 1180px)  {
+  .promo {
+    max-width: 708px;
   }
 }
 

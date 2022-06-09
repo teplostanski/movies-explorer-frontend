@@ -1,0 +1,5 @@
+.search__submit-button_inactive {
+  opacity: 0.2;
+  color: #000000;
+  pointer-events:none;
+}

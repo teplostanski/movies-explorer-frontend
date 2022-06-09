@@ -32,7 +32,7 @@
 @media screen and (max-width: 720px)  {
   .movies {
     grid-template-columns: repeat(1, 1fr);
-    grid-row-gap:27px;
-    margin-top: 50px;
+    grid-row-gap:15px;
+    margin-top: 48px;
   }
 }
